@@ -1,1 +1,7 @@
-<p>arma works!</p>
+<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll($event)">
+
+<div *ngFor="let item of shootsFired" >
+	{{item.Data.weapon}}
+	<div *ngFor="let shoots of item.Data">{{shoots.id}}</div>
+</div>
+</div>

@@ -1,1 +1,20 @@
-<li *ngFor="let missions of armamedic.Data"></li>
+<div class="spinner-border text-primary" [hidden]="Missions" role="status">
+	<span class="sr-only">Loading...</span>
+</div>
+<ul *ngIf="Missions">
+	<li *ngFor="let users of Missions.Data;">
+		<div class="col-md-12">
+			<p>{{users.user.email}}</p>
+			<p>{{users.user.user_name}}</p>
+			<p>{{users.user.steamID}}</p>
+			<p>{{users.user.vestName}}</p>
+
+			<p>{{users.typeofmission}}</p>
+			<p>{{users.missionName}}</p>
+			<p>{{users.briefing}}</p>
+			<p>{{users.solts}}</p>
+
+		</div>
+	</li>
+</ul>
+

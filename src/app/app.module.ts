@@ -14,6 +14,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ArmaComponent,
     NavBarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 	FormsModule,
 	HttpClientModule,
 	MatSidenavModule,
-	BrowserAnimationsModule
+	BrowserAnimationsModule,
+	InfiniteScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

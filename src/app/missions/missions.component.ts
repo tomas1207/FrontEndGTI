@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpHeaders, HttpParams } from '@angular/common/http';
-import {CookieService} from 'ngx-cookie-service'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service'
 
 @Component({
 	selector: 'app-missions',
@@ -8,24 +8,26 @@ import {CookieService} from 'ngx-cookie-service'
 	styleUrls: ['./missions.component.scss']
 })
 export class MissionsComponent implements OnInit {
-	armamedic: Object
-	constructor(private httpClient:HttpClient,private cookieService:CookieService) {
-		this.armamedic = {'Data':''}
-	 }
+	Missions: any = {}
+	constructor(private httpClient: HttpClient, private cookieService: CookieService) {
+	}
 
 	ngOnInit(): void {
+
 	}
-	ngAfterViewInit(){
+	ngAfterViewInit() {
 		console.log(this.cookieService.get('access'))
 
-
-		this.httpClient.get('/api/arma/medic',{headers:new HttpHeaders({
-			'Authorization':'Bearer '+this.cookieService.get('access')
+		this.httpClient.get('/api/mission/', {
+			headers: new HttpHeaders({
+				'Authorization': 'Bearer ' + this.cookieService.get('access')
 			})
-		}).subscribe(data =>{
+		}).subscribe(data => {
 			console.log(data)
-			this.armamedic = data
+			this.Missions = data
 		})
+		// return this.Missions
+
 	}
 
 }
