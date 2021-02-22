@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MedicalComponent } from './medical/medical.component';
+import { UnconsciousComponent } from './unconscious/unconscious.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     NavBarComponent,
     LoginComponent,
     RegisterComponent,
+    MedicalComponent,
+    UnconsciousComponent,
   ],
   imports: [
     BrowserModule,

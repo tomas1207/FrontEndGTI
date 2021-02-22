@@ -1,8 +1,8 @@
 <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll($event)">
 
-<div *ngFor="let item of shootsFired" >
-	<div *ngFor="let shoots of item.Data">
-		{{shoots.id}}
+	<div *ngFor="let item of medical">
+		<div *ngFor="let shoots of item.Data">
+			{{shoots.hitLocation}}
+		</div>
 	</div>
-</div>
 </div>

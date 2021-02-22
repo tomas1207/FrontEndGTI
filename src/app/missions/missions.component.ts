@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service'
-
+import { NormalEndpointService } from "../services/normal-endpoint.service";
 @Component({
 	selector: 'app-missions',
 	templateUrl: './missions.component.html',
@@ -9,24 +8,21 @@ import { CookieService } from 'ngx-cookie-service'
 })
 export class MissionsComponent implements OnInit {
 	Missions: any = {}
-	constructor(private httpClient: HttpClient, private cookieService: CookieService) {
+	isMenuCollapsed = true;
+	isMenuCollapsed1 = true;
+	constructor(private httpClient: NormalEndpointService) {
 	}
 
 	ngOnInit(): void {
 
 	}
 	ngAfterViewInit() {
-		console.log(this.cookieService.get('access'))
 
-		this.httpClient.get('/api/mission/', {
-			headers: new HttpHeaders({
-				'Authorization': 'Bearer ' + this.cookieService.get('access')
-			})
-		}).subscribe(data => {
+
+		this.httpClient.httpGet('/api/mission/').subscribe(data => {
 			console.log(data)
 			this.Missions = data
 		})
-		// return this.Missions
 
 	}
 

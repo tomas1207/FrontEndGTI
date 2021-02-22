@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 	//userModule:UserModule
 	model = new Login('','');
 	closeResult =''
+	remember = false
 	submitted = false;
 	loading = false;
 	loginerro = false;
@@ -34,8 +35,14 @@ export class LoginComponent implements OnInit {
 
 		this.httpClient.post<any>('/api/token/',this.model).subscribe(data => {
 			console.log("ESTOU AKI")
-			this.cookie.set('access',data.access)
-			this.cookie.set('refresh',data.refresh)
+
+			if (this.remember){
+				localStorage.setItem('access',data.access)
+				localStorage.setItem('refresh',data.refresh)
+			}else{
+            	sessionStorage.setItem('access',data.access)
+				sessionStorage.setItem('refresh',data.refresh)
+			}
 			this.closeResult = 'success'
 			this.modalService.dismissAll()
 		},error => {
@@ -61,5 +68,8 @@ export class LoginComponent implements OnInit {
 		} else {
 			return `with: ${reason}`;
 		}
+	}
+	changeRemember(e:any){
+		this.remember = !this.remember;
 	}
 }

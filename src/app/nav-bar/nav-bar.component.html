@@ -1,22 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><h1>Teste</h1></a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <a class="navbar-brand" [routerLink]="'.'">
+        <h1>Teste</h1>
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/Arma']" (click)="isMenuCollapsed = true">Arma</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Arma']">Arma</a>
+                <a class="nav-link" [routerLink]="['/Missions']" (click)="isMenuCollapsed = true">Missions</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Missions']">Missions</a>
+                <a class="nav-link" [routerLink]="['/Login']" (click)="isMenuCollapsed = true">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Login']">Login</a>
+                <a class="nav-link" [routerLink]="['/Medical']" (click)="isMenuCollapsed = true">Medical</a>
             </li>
         </ul>
     </div>
