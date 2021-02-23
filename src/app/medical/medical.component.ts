@@ -7,16 +7,16 @@ import { NormalEndpointService } from "../services/normal-endpoint.service";
 })
 export class MedicalComponent implements OnInit {
 	medical: any = [];
-	constructor(private http:NormalEndpointService) { }
+	constructor(private http: NormalEndpointService) { }
 
 	ngOnInit(): void {
 		this.httpget('api/arma/medic')
 	}
-	onScroll(e:any){
+	onScroll(e: any) {
 
 		this.httpget(this.medical[this.medical.length - 1]["Pagination"]["next"])
 	}
-	httpget(url:string){
+	httpget(url: string) {
 		this.http.httpGet(url).subscribe(data => {
 			console.log(data)
 			this.medical.push(data)

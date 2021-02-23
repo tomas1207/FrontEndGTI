@@ -1,0 +1,50 @@
+<div class="spinner-border text-primary" [hidden]="campagain" role="status">
+	<span class="sr-only">Loading...</span>
+</div>
+
+
+
+
+<div class="container" *ngIf="campagain">
+	<div *ngFor="let item of campagain.Data">
+		<div class="row">
+			<div class="col-1" style="background-color: red;">
+				<p>wasd</p>
+			</div>
+			<div class="col-8" style="background-color: blue;">
+				<p>{{item.name}}</p>
+			</div>
+			<div class="col-3" style="background-color:brown">
+				<div class="circle">{{count[item.name].count}}</div>
+			</div>
+			<!-- <div class="col-12" [ngbCollapse]="isMenuCollapsed">
+				<div *ngFor="let item of Missions">
+					<div *ngFor="let shoots of item.Data">
+						{{shoots.missionName}}
+					</div>
+				</div>
+			</div> -->
+
+
+		</div>
+	</div>
+</div>
+
+
+
+<!-- <ul *ngIf="Missions">
+	<li *ngFor="let users of Missions.Data;">
+		<div class="col-md-12">
+			<p>{{users.user.email}}</p>
+			<p>{{users.user.user_name}}</p>
+			<p>{{users.user.steamID}}</p>
+			<p>{{users.user.vestName}}</p>
+
+			<p>{{users.typeofmission}}</p>
+			<p>{{users.missionName}}</p>
+			<p>{{users.briefing}}</p>
+			<p>{{users.solts}}</p>
+
+		</div>
+	</li>
+</ul> -->

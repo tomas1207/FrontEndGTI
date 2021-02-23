@@ -8,15 +8,15 @@ import { MedicalComponent } from './medical/medical.component';
 
 
 const routes: Routes = [
-  { path: 'Arma', component: ArmaComponent },
-  { path: 'Missions', component: MissionsComponent},
-  { path: 'Login', component: LoginComponent},
-  { path: 'Register', component:RegisterComponent },
-  { path: 'Medical',component:MedicalComponent}
+	{ path: 'Arma', component: ArmaComponent },
+	{ path: 'Missions/:id', component: MissionsComponent },
+	{ path: 'Login', component: LoginComponent },
+	{ path: 'Register', component: RegisterComponent },
+	{ path: 'Medical', component: MedicalComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
 export class AppRoutingModule { }

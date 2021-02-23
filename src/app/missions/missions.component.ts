@@ -7,22 +7,18 @@ import { NormalEndpointService } from "../services/normal-endpoint.service";
 	styleUrls: ['./missions.component.scss']
 })
 export class MissionsComponent implements OnInit {
-	Missions: any = {}
-	isMenuCollapsed = true;
-	isMenuCollapsed1 = true;
+
 	constructor(private httpClient: NormalEndpointService) {
 	}
 
 	ngOnInit(): void {
 
+
 	}
 	ngAfterViewInit() {
 
 
-		this.httpClient.httpGet('/api/mission/').subscribe(data => {
-			console.log(data)
-			this.Missions = data
-		})
+
 
 	}
 

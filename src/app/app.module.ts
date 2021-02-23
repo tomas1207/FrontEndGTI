@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MedicalComponent } from './medical/medical.component';
 import { UnconsciousComponent } from './unconscious/unconscious.component';
+import { CampaignComponent } from './campaign/campaign.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UnconsciousComponent } from './unconscious/unconscious.component';
     RegisterComponent,
     MedicalComponent,
     UnconsciousComponent,
+    CampaignComponent,
   ],
   imports: [
     BrowserModule,
