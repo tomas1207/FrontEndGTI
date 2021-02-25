@@ -17,9 +17,6 @@ export class MissionsComponent implements OnInit {
 	}
 	ngAfterViewInit() {
 
-
-
-
 	}
 
 }

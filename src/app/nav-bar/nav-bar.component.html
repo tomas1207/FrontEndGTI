@@ -1,24 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-    <a class="navbar-brand" [routerLink]="'.'">
-        <h1>Teste</h1>
-    </a>
-    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
-        &#9776;
-    </button>
-    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Arma']" (click)="isMenuCollapsed = true">Arma</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Missions']" (click)="isMenuCollapsed = true">Missions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Login']" (click)="isMenuCollapsed = true">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Medical']" (click)="isMenuCollapsed = true">Medical</a>
-            </li>
-        </ul>
-    </div>
+	<a class="navbar-brand" [routerLink]="'.'">
+		<h1>Teste</h1>
+	</a>
+	<button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+		&#9776;
+	</button>
+	<div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<li class="nav-item">
+				<a class="nav-link" [routerLink]="['/Arma']" (click)="isMenuCollapsed = true">Arma</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" [routerLink]="['/Missions']" (click)="isMenuCollapsed = true">Missions</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" [routerLink]="['/Login']" (click)="isMenuCollapsed = true">Login</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" [routerLink]="['/Medical']" (click)="isMenuCollapsed = true">Medical</a>
+			</li>
+		</ul>
+	</div>
 </nav>

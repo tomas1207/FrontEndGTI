@@ -4,30 +4,35 @@
 
 
 
+<div class="container " *ngIf="campagain">
+	<div class="row justify-content-center">
+		<div *ngFor="let item of campagain.Data" style="margin-right: 1em; margin-bottom:1em; background-color:brown;"
+			class="col-lg-3 col-sm-6 ">
 
-<div class="container" *ngIf="campagain">
-	<div *ngFor="let item of campagain.Data">
-		<div class="row">
-			<div class="col-1" style="background-color: red;">
-				<p>wasd</p>
-			</div>
-			<div class="col-8" style="background-color: blue;">
-				<p>{{item.name}}</p>
-			</div>
-			<div class="col-3" style="background-color:brown">
-				<div class="circle">{{count[item.name].count}}</div>
-			</div>
-			<!-- <div class="col-12" [ngbCollapse]="isMenuCollapsed">
-				<div *ngFor="let item of Missions">
-					<div *ngFor="let shoots of item.Data">
-						{{shoots.missionName}}
-					</div>
+			<div class="row">
+				<div class="col rounded" style="background-color:blue;">
+					<p>{{item.name}}</p>
 				</div>
-			</div> -->
-
-
+			</div>
+			<div class="row">
+				<div class="col" style="background-color:black;">
+					<p>{{item.name}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div> Status:Activo</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div> Missioes: ------ {{count[item.name].count}}</div>
+				</div>
+			</div>
 		</div>
+
 	</div>
+
 </div>
 
 
