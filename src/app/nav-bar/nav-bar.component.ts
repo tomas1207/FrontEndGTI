@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from '../login/login.component'
 @Component({
 	selector: 'app-nav-bar',
 	templateUrl: './nav-bar.component.html',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 	isMenuCollapsed = true;
-	constructor() { }
+	constructor(private modalService: NgbModal) { }
 
 	ngOnInit(): void {
+	}
+	openmodal() {
+		const arroz = this.modalService.open(LoginComponent)
+		arroz.componentInstance()
 	}
 
 }

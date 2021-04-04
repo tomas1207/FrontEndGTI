@@ -18,6 +18,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MedicalComponent } from './medical/medical.component';
 import { UnconsciousComponent } from './unconscious/unconscious.component';
 import { CampaignComponent } from './campaign/campaign.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CampaignComponent } from './campaign/campaign.component';
     MedicalComponent,
     UnconsciousComponent,
     CampaignComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

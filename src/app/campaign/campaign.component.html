@@ -4,52 +4,31 @@
 
 
 
-<div class="container " *ngIf="campagain">
-	<div class="row justify-content-center">
-		<div *ngFor="let item of campagain.Data" style="margin-right: 1em; margin-bottom:1em; background-color:brown;"
-			class="col-lg-3 col-sm-6 ">
+<div class="container" *ngIf="campagain">
+	<div class="row justify-content-center ">
+		<div *ngFor="let item of campagain.Data" [routerLink]="['/Missions',item.id,item.name]"
+			style="margin-right: 1em; margin-bottom:1em; " class="col-lg-2 col-sm-6 ">
 
 			<div class="row">
-				<div class="col rounded" style="background-color:blue;">
+				<img src="../assets/UserIconWhite.png" style="height:100%;width:100%; border: 30px; " />
+			</div>
+
+			<div class="row">
+				<div class="col" style="font-family: LLLiberte; font-size: 25px;">
 					<p>{{item.name}}</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col" style="background-color:black;">
-					<p>{{item.name}}</p>
+				<div class="col" style="margin-top: -20px;font-size: 15px;">
+					Status: <span [ngClass]="item.status ? 'active':'deactive'">{{activeOrNOt(item.status)}}</span>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col">
-					<div> Status:Activo</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<div> Missioes: ------ {{count[item.name].count}}</div>
+				<div class="col" style="font-size: 15px;">
+					<div> Missioes:<span class="missions"> ------- {{count[item.name].count}}</span></div>
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 </div>
-
-
-
-<!-- <ul *ngIf="Missions">
-	<li *ngFor="let users of Missions.Data;">
-		<div class="col-md-12">
-			<p>{{users.user.email}}</p>
-			<p>{{users.user.user_name}}</p>
-			<p>{{users.user.steamID}}</p>
-			<p>{{users.user.vestName}}</p>
-
-			<p>{{users.typeofmission}}</p>
-			<p>{{users.missionName}}</p>
-			<p>{{users.briefing}}</p>
-			<p>{{users.solts}}</p>
-
-		</div>
-	</li>
-</ul> -->

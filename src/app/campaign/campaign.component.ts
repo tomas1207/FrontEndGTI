@@ -36,11 +36,15 @@ export class CampaignComponent implements OnInit {
 	}
 	ngAfterViewInit() {
 
-
-
+	}
+	activeOrNOt(item: any) {
+		if (item) {
+			return "Activo"
+		} else {
+			return "Encerrado"
+		}
 
 	}
-
 }
 
 
