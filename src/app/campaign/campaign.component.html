@@ -6,8 +6,8 @@
 
 <div class="container" *ngIf="campagain">
 	<div class="row justify-content-center ">
-		<div *ngFor="let item of campagain.Data" [routerLink]="['/Missions',item.id,item.name]"
-			style="margin-right: 1em; margin-bottom:1em; " class="col-lg-2 col-sm-6 ">
+		<div *ngFor="let item of campagain.Data" [routerLink]="['/Missions',item.id]" [state]="item"
+			style="margin-right: 1em; margin-bottom:1em;" class="col-lg-2 col-sm-6">
 
 			<div class="row">
 				<img src="../assets/UserIconWhite.png" style="height:100%;width:100%; border: 30px; " />
@@ -25,7 +25,7 @@
 			</div>
 			<div class="row">
 				<div class="col" style="font-size: 15px;">
-					<div> Missioes:<span class="missions"> ------- {{count[item.name].count}}</span></div>
+					<div> Missioes:<span class="missions"> ------- {{count[item.name]["count"]}}</span></div>
 				</div>
 			</div>
 		</div>

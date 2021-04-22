@@ -15,14 +15,18 @@ export class MissionsComponent implements OnInit {
 	constructor(private httpClient: NormalEndpointService, private activatedroute: ActivatedRoute) {
 		this.activatedroute.params.subscribe(data => {
 			this.id = data["id"]
-			this.campaignName = data["name"]
-			console.log(data)
 		})
 	}
 
 	ngOnInit(): void {
-
-
+		console.log("--------------------------");
+		console.log(window.history.state);
+		this.campaignName = window.history.state.name
+		if (this.campaignName == undefined) {
+			this.campaignName = sessionStorage.getItem("campaignName")
+		} else {
+			sessionStorage.setItem("campaignName", this.campaignName)
+		}
 	}
 	ngAfterViewInit() {
 		this.httpParamas = new HttpParams().set('campaign', this.id)

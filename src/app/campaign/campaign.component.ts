@@ -20,15 +20,14 @@ export class CampaignComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+
 		this.httpClient.httpGet('/api/campaign/').subscribe(data => {
 			this.campagain = data
 			for (let index = 0; index < this.campagain.Data.length; index++) {
 				const element = this.campagain.Data[index];
 				this.httpParams = new HttpParams().set('campaign', element.id)
 				this.httpClient.httpGet('/api/campaign/count', this.httpParams).subscribe(data => {
-					console.log(data)
 					this.count[element.name] = data
-					console.log(this.count);
 				})
 			}
 		})

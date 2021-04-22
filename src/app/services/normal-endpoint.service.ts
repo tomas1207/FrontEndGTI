@@ -10,7 +10,8 @@ export class NormalEndpointService {
 
 	constructor(private http: HttpClient) { }
 	httpGet(url: any, http = null): Observable<object> {
-		if (sessionStorage.length != 0) {
+		//TODO New System for sessionStorage Maybey key check
+		if (sessionStorage.getItem("access") != undefined) {
 			this.storageUser = sessionStorage
 		}
 		else {

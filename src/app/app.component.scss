@@ -2,12 +2,22 @@
 
 * {
 	font-size: 1.2em !important;
-	color: #ffffff;
+	color: var(--white);
 	font-family: "Titillium Web", sans-serif !important;
 }
 
 .arrozimage {
 	background-image: url("../assets/BG.png");
-	height: 100%;
-	width: 100%;
+	min-height: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+:root {
+	--primary: #ff8900;
+	--white: #ffffff;
+	--black: #161a1a;
+	--success: #00f09d;
+	--erro: #f00031;
 }

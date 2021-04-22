@@ -7,14 +7,17 @@ import { RegisterComponent } from "./register/register.component";
 import { MedicalComponent } from './medical/medical.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { HomeComponent } from './home/home.component'
+import { BrefingComponent } from './brefing/brefing.component';
+
 
 const routes: Routes = [
 	{ path: 'Arma', component: ArmaComponent },
 	{ path: 'Campaing', component: CampaignComponent },
-	{ path: 'Missions/:id/:name', component: MissionsComponent },
+	{ path: 'Missions/:id', component: MissionsComponent },
 	{ path: 'Login', component: LoginComponent },
 	{ path: 'Register', component: RegisterComponent },
 	{ path: 'Medical/:id', component: MedicalComponent },
+	{ path: 'Brefing/:id', component: BrefingComponent },
 	{ path: '', component: HomeComponent }
 ];
 

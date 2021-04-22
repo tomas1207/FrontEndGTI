@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 		this.submitted = true;
 
 		this.httpClient.post<any>('/api/token/', this.model).subscribe(data => {
-			console.log("ESTOU AKI")
+			console.log(data)
 
 			if (this.remember) {
 				localStorage.setItem('access', data.access)
