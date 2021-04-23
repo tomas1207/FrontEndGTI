@@ -31,7 +31,6 @@ export class MissionsComponent implements OnInit {
 	ngAfterViewInit() {
 		this.httpParamas = new HttpParams().set('campaign', this.id)
 		this.httpClient.httpGet("/api/mission", this.httpParamas).subscribe(data => {
-			console.log(data)
 			this.missions = data
 		})
 	}
