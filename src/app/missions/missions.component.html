@@ -5,7 +5,7 @@
 		<div *ngFor="let item of missions.Data" style="margin-right: 1em; margin-bottom:1em;"
 			class="col-lg-12 col-sm-12 ">
 
-			<div class="row" [routerLink]="['/Brefing',item.id]"
+			<div class="row" [routerLink]="['/Brefing',item.id]" [state]="item"
 				style="border-width: 1px;  border-color: rgba(112, 112, 112, 0.8); border-style: solid; background-color:rgba(29,33,39,0.5);">
 				<div class="col-6 ">
 					<p>{{item.missionName}}</p>

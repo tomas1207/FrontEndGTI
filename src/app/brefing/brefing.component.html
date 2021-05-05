@@ -1,59 +1,32 @@
 <div class="row" style="margin-top:25px">
-	<h1 class="col-5">Nome da missaso</h1>
-	<h2 class="col-7 text-right">12/07/98</h2>
+	<h1 class="col-5">{{missionObject.missionName}}</h1>
+	<h2 class="col-7 text-right">{{missionObject.date | date:'dd-MM-YYYY'}}</h2>
 </div>
 
 <div class="row" style="margin-top:54px">
-	<h3 class="col-5" style="color:chocolate">Brefing</h3>
-	<button class="col-5 btn-info">Ola</button>
-	<h4 class="col-2 text-left" style="color:chartreuse">Slots 3/10</h4>
+	<h3 class="col-9" style="color:chocolate">Briefing</h3>
+	<span class="col-2 " style="color:chartreuse; border-radius: 20px;">
+		Slots: {{slotsavl}}/{{missionObject.maxsolts}}
+	</span>
+	<!-- TODO -->
+	<h4 class="col-1 bg-transparent" style="color:chartreuse; border-color: transparent; cursor: pointer;"
+		(click)="joinmission()">
+		JOIN
+	</h4>
 </div>
 <div class="row" style="margin-top: 20px;">
 	<div class="col-9">
 		<span>
-			Ea non sint irure incididunt nisi irure deserunt ut Lorem nostrud ex. Nulla ex qui nostrud duis dolor sint
-			commodo in reprehenderit consectetur id. Dolor et Lorem veniam aute amet ea deserunt veniam occaecat ullamco
-			commodo nisi nostrud. Laborum officia sit culpa pariatur pariatur qui labore officia enim voluptate.
-
-			Nostrud magna minim velit nostrud velit ipsum esse id aute magna mollit proident excepteur pariatur. Veniam
-			duis mollit ullamco voluptate laboris laboris velit est esse voluptate dolore nisi in. Amet nisi fugiat sunt
-			proident dolore occaecat incididunt cupidatat occaecat mollit veniam excepteur nostrud.
-
-			Adipisicing nostrud Lorem reprehenderit ullamco ex veniam sit occaecat et. Consectetur cillum sit excepteur
-			sunt anim. Magna consequat sint velit et reprehenderit culpa officia. Non occaecat et nisi proident sunt
-			nostrud eu consequat pariatur nulla enim.
-
-			Tempor cupidatat aliquip sunt aute proident ut ad nisi. Exercitation enim consequat elit dolore ullamco
-			consequat officia consequat tempor sint aliqua incididunt elit enim. Proident ipsum pariatur pariatur
-			consectetur sit id. Eu sint ex nulla exercitation minim commodo fugiat duis magna quis adipisicing. Elit
-			tempor nostrud est qui.
-
-			Magna veniam pariatur aliqua ut consequat in ut laboris non veniam et commodo enim id. Aliqua pariatur
-			nostrud ex pariatur aute culpa aliqua aliqua sint. Nostrud occaecat dolore magna consectetur veniam minim
-			aliqua incididunt ea.
-
-			Commodo adipisicing sit cupidatat culpa pariatur aliqua dolor. Sint enim aute ullamco ex anim sunt proident
-			laboris laboris anim occaecat laboris. Eu adipisicing amet ipsum amet laboris. Voluptate exercitation aliqua
-			sunt reprehenderit. Non id commodo aliquip fugiat anim. Nulla mollit ex eiusmod non eu ut ad aliquip officia
-			laborum exercitation. Est excepteur commodo adipisicing exercitation.
-
-			Excepteur veniam aute irure exercitation ullamco irure duis nisi reprehenderit exercitation. Exercitation
-			reprehenderit est sunt nostrud labore deserunt cupidatat Lorem officia do sunt reprehenderit laboris
-			excepteur. Minim labore reprehenderit exercitation magna veniam. Aliquip sint aliqua cillum ex est. Ipsum
-			ipsum exercitation aliquip aliqua adipisicing eu consectetur culpa culpa nulla. Consectetur velit nisi sint
-			aute Lorem laborum minim id sit velit incididunt dolore dolore sit.
+			{{missionObject.briefing}}
 		</span>
 
 	</div>
 	<div class="col-3" style="padding:0px">
 
 		<p class="col-12" style="font-size:18px">Quem esta a participar:</p>
-
-		<!-- TODO: List -->
-		<p class="col-12" style="font-size:14px">TheBIGONE</p>
-		<p class="col-12" style="font-size:14px">TheBIGONE</p>
-		<p class="col-12" style="font-size:14px">TheBIGONE</p>
-		<p class="col-12" style="font-size:14px">TheBIGONE</p>
+		<ul class="" *ngFor="let item of missionObject.joined">
+			<li>{{item.user_name}}</li>
+		</ul>
 	</div>
 
 </div>

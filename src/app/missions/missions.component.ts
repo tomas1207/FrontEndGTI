@@ -19,8 +19,6 @@ export class MissionsComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		console.log("--------------------------");
-		console.log(window.history.state);
 		this.campaignName = window.history.state.name
 		if (this.campaignName == undefined) {
 			this.campaignName = sessionStorage.getItem("campaignName")
