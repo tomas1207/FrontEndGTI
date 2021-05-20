@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Login } from '../Models/Login/login'
 import { CookieService } from 'ngx-cookie-service'
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 	loading = false;
 	loginerro = false;
 	@ViewChild('content') html: any
+	@Output() loginuser: EventEmitter<any> = new EventEmitter();
 	constructor(private httpClient: HttpClient, private cookie: CookieService, private modalService: NgbModal, public modal: NgbActiveModal) { }
 
 	ngOnInit(): void {
@@ -46,9 +47,11 @@ export class LoginComponent implements OnInit {
 				sessionStorage.setItem('refresh', data.refresh)
 			}
 			this.closeResult = 'success'
+			this.loginuser.emit(true)
 			this.modalService.dismissAll()
 		}, error => {
 			console.log(error)
+
 			this.loginerro = true;
 		})
 		this.loading = false;

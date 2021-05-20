@@ -8,13 +8,29 @@ import { LoginComponent } from '../login/login.component'
 })
 export class NavBarComponent implements OnInit {
 	isMenuCollapsed = true;
+	isUserLogin = false;
 	constructor(private modalService: NgbModal) { }
 
 	ngOnInit(): void {
+		this.isUserLogin = this.checkLoginUser()
 	}
 	openmodal() {
-		const arroz = this.modalService.open(LoginComponent)
-		arroz.componentInstance()
+		const loginModal = this.modalService.open(LoginComponent)
+		loginModal.componentInstance.loginuser.subscribe((loginSuc: boolean) => {
+			this.isUserLogin = loginSuc
+		})
+	}
+	checkLoginUser(): boolean {
+		if (sessionStorage.getItem('access') != undefined) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	logoutUser() {
+		this.isUserLogin = false;
+		sessionStorage.removeItem('access')
+		localStorage.removeItem('access')
 	}
 
 }

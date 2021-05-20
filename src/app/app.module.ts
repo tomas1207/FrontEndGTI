@@ -20,6 +20,7 @@ import { UnconsciousComponent } from './unconscious/unconscious.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { HomeComponent } from './home/home.component';
 import { BrefingComponent } from './brefing/brefing.component';
+import { CreataCamComponent } from './creata-cam/creata-cam.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { BrefingComponent } from './brefing/brefing.component';
     CampaignComponent,
     HomeComponent,
     BrefingComponent,
+    CreataCamComponent,
   ],
   imports: [
     BrowserModule,

@@ -32,8 +32,8 @@ export class BrefingComponent implements OnInit {
 		this.httpClient.httpPost("/api/mission/register", { "mission": this.missionObject.id }, this.httpParamas).subscribe(data => {
 			this.missionObject = data
 			this.slotsavl = Object.keys(this.missionObject.joined).length;
-
 		})
 	}
 
 }
+

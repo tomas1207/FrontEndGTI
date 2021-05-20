@@ -9,7 +9,7 @@ export class NormalEndpointService {
 	storageUser: any
 
 	constructor(private http: HttpClient) { }
-	httpGet(url: any, http = null): Observable<object> {
+	httpGet(url: any, http: HttpParams = new HttpParams()): Observable<object> {
 		//TODO New System for sessionStorage Maybey key check
 		this.checkuserstorage()
 		return this.http.get(url, {
@@ -21,12 +21,7 @@ export class NormalEndpointService {
 		})
 	}
 	httpPost(url: any, boby: any, http = null): Observable<object> {
-		if (sessionStorage.getItem("access") != undefined) {
-			this.storageUser = sessionStorage
-		}
-		else {
-			this.storageUser = localStorage
-		}
+		this.checkuserstorage();
 		return this.http.post(url, boby, {
 			//TODO: Fazer as headers abstrac
 			headers: new HttpHeaders({
