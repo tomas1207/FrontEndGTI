@@ -1,6 +1,6 @@
 <div class="row" style="margin-top:25px">
 	<h1 class="col-5">{{missionObject.missionName}}</h1>
-	<h2 class="col-7 text-right">{{missionObject.date | date:'dd-MM-YYYY'}}</h2>
+	<h2 class="col-7 text-right">{{missionObject.date | date:'dd-MM-YYYY/h:mm'}}</h2>
 </div>
 
 <div class="row" style="margin-top:54px">
@@ -9,8 +9,8 @@
 		Slots: {{slotsavl}}/{{missionObject.maxsolts}}
 	</span>
 	<!-- TODO -->
-	<h4 class="col-1 bg-transparent" style="color:chartreuse; border-color: transparent; cursor: pointer;"
-		(click)="joinmission()">
+	<h4 *ngIf="missionObject.user.id != userobj.id;else Endmission" class="col-1 bg-transparent"
+		style="color:chartreuse; border-color: transparent; cursor: pointer;" (click)="joinmission()">
 		JOIN
 	</h4>
 </div>
@@ -30,3 +30,8 @@
 	</div>
 
 </div>
+<ng-template #Endmission>
+	<p class="col-1 bg-transparent" style="color:red; border-color: transparent; cursor: pointer;"
+		(click)="endmission()">
+		End Mission</p>
+</ng-template>

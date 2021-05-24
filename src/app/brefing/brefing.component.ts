@@ -10,6 +10,7 @@ import { NormalEndpointService } from "../services/normal-endpoint.service";
 })
 export class BrefingComponent implements OnInit {
 	missionObject: any;
+	userobj: any;
 	slotsavl: number;
 	httpParamas: any;
 
@@ -24,7 +25,8 @@ export class BrefingComponent implements OnInit {
 		}
 		this.missionObject = JSON.parse(this.missionObject)
 		this.slotsavl = Object.keys(this.missionObject.joined).length;
-
+		this.userobj = localStorage.getItem("userinfo")
+		this.userobj = JSON.parse(this.userobj)
 	}
 
 	joinmission(): void {
@@ -34,6 +36,12 @@ export class BrefingComponent implements OnInit {
 			this.slotsavl = Object.keys(this.missionObject.joined).length;
 		})
 	}
+	endmission(): void {
+		var id = this.missionObject.id
+		this.httpClient.httpPut("/api/mission/", { "id": id }).subscribe((res) => {
+			console.log(res)
+		})
 
+	}
 }
 

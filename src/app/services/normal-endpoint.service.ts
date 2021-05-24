@@ -29,6 +29,15 @@ export class NormalEndpointService {
 			})
 		})
 	}
+	httpPut(url: any, boby: any, http = null): Observable<object> {
+		this.checkuserstorage();
+		return this.http.put(url, boby, {
+			//TODO: Fazer as headers abstrac
+			headers: new HttpHeaders({
+				'Authorization': 'Bearer ' + this.storageUser.getItem('access')
+			})
+		})
+	}
 	private checkuserstorage() {
 		if (sessionStorage.getItem("access") != undefined) {
 			this.storageUser = sessionStorage

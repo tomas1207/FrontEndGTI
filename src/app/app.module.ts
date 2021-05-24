@@ -21,6 +21,7 @@ import { CampaignComponent } from './campaign/campaign.component';
 import { HomeComponent } from './home/home.component';
 import { BrefingComponent } from './brefing/brefing.component';
 import { CreataCamComponent } from './creata-cam/creata-cam.component';
+import { DebriefingComponent } from './debriefing/debriefing.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CreataCamComponent } from './creata-cam/creata-cam.component';
     HomeComponent,
     BrefingComponent,
     CreataCamComponent,
+    DebriefingComponent,
   ],
   imports: [
     BrowserModule,

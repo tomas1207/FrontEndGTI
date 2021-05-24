@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { NormalEndpointService } from "../services/normal-endpoint.service";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
 	selector: 'app-missions',
 	templateUrl: './missions.component.html',
@@ -12,7 +12,7 @@ export class MissionsComponent implements OnInit {
 	campaignName: any
 	httpParamas: any
 	id: any
-	constructor(private httpClient: NormalEndpointService, private activatedroute: ActivatedRoute) {
+	constructor(private httpClient: NormalEndpointService, private activatedroute: ActivatedRoute, private router: Router) {
 		this.activatedroute.params.subscribe(data => {
 			this.id = data["id"]
 		})
@@ -29,8 +29,17 @@ export class MissionsComponent implements OnInit {
 	ngAfterViewInit() {
 		this.httpParamas = new HttpParams().set('campaign', this.id)
 		this.httpClient.httpGet("/api/mission", this.httpParamas).subscribe(data => {
+			console.log(data)
 			this.missions = data
 		})
+	}
+	ismissionEnd(item: any) {
+		if (item.isfinish) {
+			this.router.navigate(['/debriefing', item.id])
+		} else {
+			this.router.navigate(['/Brefing', item.id], item)
+		}
+
 	}
 }
 

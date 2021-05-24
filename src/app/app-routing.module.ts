@@ -8,12 +8,17 @@ import { MedicalComponent } from './medical/medical.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { HomeComponent } from './home/home.component'
 import { BrefingComponent } from './brefing/brefing.component';
+import { CreataCamComponent } from './creata-cam/creata-cam.component'
+import { DebriefingComponent } from './debriefing/debriefing.component';
+import { from } from 'rxjs';
 
 
 const routes: Routes = [
 	{ path: 'Arma', component: ArmaComponent },
 	{ path: 'Campaing', component: CampaignComponent },
+	{ path: 'debriefing/:id', component: DebriefingComponent },
 	{ path: 'Missions/:id', component: MissionsComponent },
+	{ path: 'createCampaing', component: CreataCamComponent },
 	{ path: 'Login', component: LoginComponent },
 	{ path: 'Register', component: RegisterComponent },
 	{ path: 'Medical/:id', component: MedicalComponent },

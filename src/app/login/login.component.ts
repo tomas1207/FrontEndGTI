@@ -36,16 +36,18 @@ export class LoginComponent implements OnInit {
 		this.loading = true;
 		this.submitted = true;
 
-		this.httpClient.post<any>('/api/token/', this.model).subscribe(data => {
+		this.httpClient.post<any>('/api/users/login/', this.model).subscribe(data => {
 			console.log(data)
 
 			if (this.remember) {
 				localStorage.setItem('access', data.access)
+
 				localStorage.setItem('refresh', data.refresh)
 			} else {
 				sessionStorage.setItem('access', data.access)
 				sessionStorage.setItem('refresh', data.refresh)
 			}
+			localStorage.setItem('userinfo', JSON.stringify(data.userdata))
 			this.closeResult = 'success'
 			this.loginuser.emit(true)
 			this.modalService.dismissAll()
