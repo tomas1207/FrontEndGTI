@@ -1,4 +1,8 @@
-<h1 class="col-12" style="color:#FF8900; margin-top:100px;">{{campaignName}}</h1>
+<div class="row" style="margin-top:100px;">
+	<h1 class="col-9" style="color:#FF8900; ">{{campaignName}}</h1>
+	<button class=" col-3 btn btn-primary " (click)="CreateMission()" style="height: 50px;">Criar Missão</button>
+</div>
+
 <div *ngIf="missions" style="margin-top:85px;">
 	<div class="container" *ngIf="missions">
 

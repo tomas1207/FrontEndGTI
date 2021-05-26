@@ -20,10 +20,12 @@ export class BrefingComponent implements OnInit {
 		if (window.history.state.id == undefined) {
 			this.missionObject = sessionStorage.getItem("brefing")
 		} else {
+			console.log(window.history.state)
 			sessionStorage.setItem("brefing", JSON.stringify(window.history.state))
 			this.missionObject = sessionStorage.getItem("brefing")
 		}
 		this.missionObject = JSON.parse(this.missionObject)
+		console.log(this.missionObject)
 		this.slotsavl = Object.keys(this.missionObject.joined).length;
 		this.userobj = localStorage.getItem("userinfo")
 		this.userobj = JSON.parse(this.userobj)

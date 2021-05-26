@@ -46,14 +46,16 @@
 
 	</div>
 </div>
-<div class="row" style="margin-top:50px">
-	<div class="col-4">
-		<h6 style="border-right: 1px;border-left:10px;border-color: white;">ShootsFired</h6>
-	</div>
-	<div class="col-4">
-		<h6>Medical</h6>
-	</div>
-	<div class="col-4">
-		<h6>Veiches</h6>
-	</div>
-</div>
+
+
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+	<li ngbNavItem>
+		<a ngbNavLink>First</a>
+		<ng-template ngbNavContent>First content</ng-template>
+	</li>
+	<li ngbNavItem>
+		<a ngbNavLink>Second</a>
+		<ng-template ngbNavContent>Second content</ng-template>
+	</li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>

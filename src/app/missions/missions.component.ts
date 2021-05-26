@@ -22,8 +22,11 @@ export class MissionsComponent implements OnInit {
 		this.campaignName = window.history.state.name
 		if (this.campaignName == undefined) {
 			this.campaignName = sessionStorage.getItem("campaignName")
+			console.log(this.campaignName)
 		} else {
 			sessionStorage.setItem("campaignName", this.campaignName)
+			console.log("aqui esta o codigo");
+
 		}
 	}
 	ngAfterViewInit() {
@@ -35,11 +38,15 @@ export class MissionsComponent implements OnInit {
 	}
 	ismissionEnd(item: any) {
 		if (item.isfinish) {
-			this.router.navigate(['/debriefing', item.id])
+			this.router.navigate(['/debriefing', item.id], { state: item })
 		} else {
-			this.router.navigate(['/Brefing', item.id], item)
+			console.log(item)
+			this.router.navigate(['/Brefing', item.id], { state: item })
 		}
 
+	}
+	CreateMission() {
+		this.router.navigate(['home'])
 	}
 }
 
