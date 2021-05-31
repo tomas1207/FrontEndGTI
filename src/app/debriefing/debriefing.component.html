@@ -50,12 +50,16 @@
 
 <ul ngbNav #nav="ngbNav" class="nav-tabs">
 	<li ngbNavItem>
-		<a ngbNavLink>First</a>
-		<ng-template ngbNavContent>First content</ng-template>
+		<a ngbNavLink>ShootsFired</a>
+		<ng-template ngbNavContent>
+			<app-arma [missionID]="missionID"></app-arma>
+		</ng-template>
 	</li>
 	<li ngbNavItem>
-		<a ngbNavLink>Second</a>
-		<ng-template ngbNavContent>Second content</ng-template>
+		<a ngbNavLink>Medical</a>
+		<ng-template ngbNavContent>
+			<app-medical [missionid]="missionID"></app-medical>
+		</ng-template>
 	</li>
 </ul>
 <div [ngbNavOutlet]="nav"></div>

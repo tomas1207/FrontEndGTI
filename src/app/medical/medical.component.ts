@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { NormalEndpointService } from "../services/normal-endpoint.service";
@@ -11,10 +11,10 @@ import { NormalEndpointService } from "../services/normal-endpoint.service";
 export class MedicalComponent implements OnInit {
 	medical: any = [];
 	httpParams: any
-	id: any
+	@Input() missionid: any
 	constructor(private http: NormalEndpointService, private activatedroute: ActivatedRoute) {
 		this.activatedroute.params.subscribe(data => {
-			this.id = data["id"]
+			this.missionid = data["id"]
 		})
 	}
 
@@ -26,7 +26,7 @@ export class MedicalComponent implements OnInit {
 		this.httpget(this.medical[this.medical.length - 1]["Pagination"]["next"])
 	}
 	httpget(url: string) {
-		this.httpParams = new HttpParams().set('mission', this.id)
+		this.httpParams = new HttpParams().set('mission', this.missionid)
 		this.http.httpGet(url, this.httpParams).subscribe(data => {
 			console.log(data)
 			this.medical.push(data)

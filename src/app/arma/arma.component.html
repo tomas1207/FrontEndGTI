@@ -1,8 +1,12 @@
-<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll($event)">
-
-<div *ngFor="let item of shootsFired" >
-	<div *ngFor="let shoots of item.Data">
-		{{shoots.id}}
+<div class="row" *ngIf="loaded">
+	<div class="col-3">
+		<p> Trigger happy <span>{{maxPropertyValue}}</span></p>
 	</div>
 </div>
+<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll($event)">
+
+
+	<div *ngFor="let shoots of shootsFired.Data">
+		{{shoots.weapon}}
+	</div>
 </div>
