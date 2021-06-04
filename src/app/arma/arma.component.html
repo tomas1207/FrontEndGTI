@@ -1,12 +1,7 @@
-<div class="row" *ngIf="loaded">
-	<div class="col-3">
-		<p> Trigger happy <span>{{maxPropertyValue}}</span></p>
-	</div>
-</div>
-<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll($event)">
-
-
-	<div *ngFor="let shoots of shootsFired.Data">
-		{{shoots.weapon}}
+<div class="row">
+	<div *ngFor="let key of objectKeys(extraData)" class="col-11">
+		<div>
+			{{keyList[key]}} : {{getMax(extraData[key],"count").count}}
+		</div>
 	</div>
 </div>
