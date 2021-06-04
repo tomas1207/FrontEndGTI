@@ -17,6 +17,7 @@ export class DebriefingComponent implements OnInit {
 
 		this.routeSub = this.router.params.subscribe(params => {
 			this.missionID = params['id']
+			console.log(this.missionID)
 		});
 
 	}

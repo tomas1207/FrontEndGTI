@@ -1,1 +1,12 @@
-<p>unconscious works!</p>
+<div class="row" *ngIf="loaded else spinner">
+	<div *ngFor="let key of objectKeys(extraDataUnconscious)" class="col-11">
+		<div [innerHTML]="keyList[key]">
+
+		</div>
+	</div>
+</div>
+<ng-template #spinner>
+	<div class="spinner-border" role="status">
+		<span class="sr-only">Loading...</span>
+	</div>
+</ng-template>

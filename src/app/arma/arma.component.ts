@@ -10,7 +10,7 @@ import { NormalEndpointService } from '../services/normal-endpoint.service'
 export class ArmaComponent implements OnInit {
 	shootsFired: any = []
 	keyListBackEnd: any = []
-	extraData: any
+	extraDataShoots: any
 	@Input() missionID: string;
 	httpParams: any
 	maxPropertyValue: any
@@ -22,19 +22,18 @@ export class ArmaComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.loaded = false;
+		console.log(this.missionID)
 		this.httpParams = new HttpParams().set('mission', this.missionID)
 		this.httpClient.httpGet('/api/arma/shootsfired', this.httpParams).subscribe(data => {
 			this.shootsFired = data
-			this.extraData = this.shootsFired["ExtraData"]
+			this.extraDataShoots = this.shootsFired["ExtraData"]
 			//	this.keysList()
 			this.extraDataHandler()
-			console.log(this.extraData);
+			console.log(this.extraDataShoots);
 			this.loaded = true;
 		})
 	}
-	ngAfterViewInit() {
 
-	}
 
 	onScroll(event: any) {
 		this.httpClient.httpGet(this.shootsFired[this.shootsFired.length - 1]["Pagination"]["next"], this.httpParams).subscribe(data => {
@@ -44,7 +43,7 @@ export class ArmaComponent implements OnInit {
 	}
 
 	extraDataHandler() {
-		this.keyList = { 'TriggerHappy': 'Trigger Happy : O jogardor <b>' + this.getMax(this.extraData["TriggerHappy"], "count").unit.user_name + "</b> foi quem disparou mais com <b> " + this.getMax(this.extraData["TriggerHappy"], "count").count + "</b> tiros", 'mostWeaponUsed': 'Arma mais utilizada : Foi ' + this.getMax(this.extraData["mostWeaponUsed"], "count").weapon + " com " + this.getMax(this.extraData["mostWeaponUsed"], "count").count + " jogadores a jogar com ela", 'mostUsedMode': 'Modo mais utilizado : Foi ' + this.getMax(this.extraData["mostUsedMode"], "count").mode, 'AmmoDispenser': 'A ammo mais utilizada foi ' + this.getMax(this.extraData["AmmoDispenser"], "count").ammo }
+		this.keyList = { 'TriggerHappy': 'Trigger Happy : O jogardor <b>' + this.getMax(this.extraDataShoots["TriggerHappy"], "count").unit.user_name + "</b> foi quem disparou mais com <b> " + this.getMax(this.extraDataShoots["TriggerHappy"], "count").count + "</b> tiros", 'mostWeaponUsed': 'Arma mais utilizada : Foi ' + this.getMax(this.extraDataShoots["mostWeaponUsed"], "count").weapon + " com " + this.getMax(this.extraDataShoots["mostWeaponUsed"], "count").count + " jogadores a jogar com ela", 'mostUsedMode': 'Modo mais utilizado : Foi ' + this.getMax(this.extraDataShoots["mostUsedMode"], "count").mode, 'AmmoDispenser': 'A ammo mais utilizada foi ' + this.getMax(this.extraDataShoots["AmmoDispenser"], "count").ammo }
 
 
 	}
@@ -56,6 +55,7 @@ export class ArmaComponent implements OnInit {
 		}
 		return max;
 	}
+
 
 
 	// checkMostTriggerhappy() {

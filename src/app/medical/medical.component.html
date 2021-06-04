@@ -1,8 +1,20 @@
-<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll($event)">
+<!-- <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll($event)">
 
 	<div *ngFor="let item of medical">
 		<div *ngFor="let shoots of item.Data">
 			{{shoots.hitLocation}}
 		</div>
 	</div>
+</div> -->
+<div class="row" *ngIf="loaded else spinner">
+	<div *ngFor="let key of objectKeys(keyList)" class="col-11">
+		<div>
+			{{keyList[key]}}
+		</div>
+	</div>
 </div>
+<ng-template #spinner>
+	<div class="spinner-border" role="status">
+		<span class="sr-only">Loading...</span>
+	</div>
+</ng-template>

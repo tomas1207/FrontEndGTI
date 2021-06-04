@@ -58,7 +58,13 @@
 	<li ngbNavItem>
 		<a ngbNavLink>Medical</a>
 		<ng-template ngbNavContent>
-			<app-medical [missionid]="missionID"></app-medical>
+			<app-medical [missionID]="missionID"></app-medical>
+		</ng-template>
+	</li>
+	<li ngbNavItem>
+		<a ngbNavLink>Unconscious</a>
+		<ng-template ngbNavContent>
+			<app-unconscious [missionID]="missionID"></app-unconscious>
 		</ng-template>
 	</li>
 </ul>
