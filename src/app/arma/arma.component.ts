@@ -9,13 +9,13 @@ import { NormalEndpointService } from '../services/normal-endpoint.service'
 })
 export class ArmaComponent implements OnInit {
 	shootsFired: any = []
-	keyList: any = { 'TriggerHappy': 'Trigger Happy', 'mostWeaponUsed': 'Arma mais utilizada', 'mostUsedMode': 'Modo mais utilizado', 'AmmoDispenser': 'Qual ammo foi utilizada' }
 	keyListBackEnd: any = []
 	extraData: any
 	@Input() missionID: string;
 	httpParams: any
 	maxPropertyValue: any
 	loaded: boolean
+	keyList: any = {}
 	objectKeys = Object.keys
 
 	constructor(private httpClient: NormalEndpointService) { }
@@ -26,7 +26,7 @@ export class ArmaComponent implements OnInit {
 		this.httpClient.httpGet('/api/arma/shootsfired', this.httpParams).subscribe(data => {
 			this.shootsFired = data
 			this.extraData = this.shootsFired["ExtraData"]
-			this.keysList()
+			//	this.keysList()
 			this.extraDataHandler()
 			console.log(this.extraData);
 			this.loaded = true;
@@ -42,14 +42,9 @@ export class ArmaComponent implements OnInit {
 		})
 
 	}
-	keysList() {
-		for (let key in this.extraData) {
-			this.keyListBackEnd.push(key)
-		}
-		console.log(this.keyList);
-	}
+
 	extraDataHandler() {
-		var maxvalue = this.getMax(this.extraData["mostWeaponUsed"], "count")
+		this.keyList = { 'TriggerHappy': 'Trigger Happy : O jogardor ' + this.getMax(this.extraData["TriggerHappy"], "count").unit.user_name + " foi quem disparou mais com " + this.getMax(this.extraData["TriggerHappy"], "count").count + " tiros", 'mostWeaponUsed': 'Arma mais utilizada : Foi ' + this.getMax(this.extraData["mostWeaponUsed"], "count").weapon + " com " + this.getMax(this.extraData["mostWeaponUsed"], "count").count + " jogadores a jogar com ela", 'mostUsedMode': 'Modo mais utilizado : Foi ' + this.getMax(this.extraData["mostUsedMode"], "count").mode, 'AmmoDispenser': 'A ammo mais utilizada foi ' + this.getMax(this.extraData["AmmoDispenser"], "count").ammo }
 
 
 	}
