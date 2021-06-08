@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from "@angular/material/sidenav";
 
@@ -22,34 +22,38 @@ import { HomeComponent } from './home/home.component';
 import { BrefingComponent } from './brefing/brefing.component';
 import { CreataCamComponent } from './creata-cam/creata-cam.component';
 import { DebriefingComponent } from './debriefing/debriefing.component';
+import { CreateMissionComponent } from './create-mission/create-mission.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MissionsComponent,
-    ArmaComponent,
-    NavBarComponent,
-    LoginComponent,
-    RegisterComponent,
-    MedicalComponent,
-    UnconsciousComponent,
-    CampaignComponent,
-    HomeComponent,
-    BrefingComponent,
-    CreataCamComponent,
-    DebriefingComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-	FormsModule,
-	HttpClientModule,
-	MatSidenavModule,
-	BrowserAnimationsModule,
-	InfiniteScrollModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		MissionsComponent,
+		ArmaComponent,
+		NavBarComponent,
+		LoginComponent,
+		RegisterComponent,
+		MedicalComponent,
+		UnconsciousComponent,
+		CampaignComponent,
+		HomeComponent,
+		BrefingComponent,
+		CreataCamComponent,
+		DebriefingComponent,
+		CreateMissionComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		NgbModule,
+		FormsModule,
+		HttpClientModule,
+		MatSidenavModule,
+		BrowserAnimationsModule,
+		InfiniteScrollModule,
+		ReactiveFormsModule,
+		FormsModule,
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

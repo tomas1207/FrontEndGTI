@@ -11,6 +11,7 @@ import { BrefingComponent } from './brefing/brefing.component';
 import { CreataCamComponent } from './creata-cam/creata-cam.component'
 import { DebriefingComponent } from './debriefing/debriefing.component';
 import { from } from 'rxjs';
+import { CreateMissionComponent } from './create-mission/create-mission.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
 	{ path: 'Register', component: RegisterComponent },
 	{ path: 'Medical/:id', component: MedicalComponent },
 	{ path: 'Brefing/:id', component: BrefingComponent },
+	{ path: 'CreateMission', component: CreateMissionComponent },
 	{ path: '', component: HomeComponent }
 ];
 

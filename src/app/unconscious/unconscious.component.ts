@@ -41,7 +41,7 @@ export class UnconsciousComponent implements OnInit {
 	}
 
 	extraDataHandler() {
-		this.keyList = { 'DeadCount': 'Numero de mortes: ' + this.extraDataUnconscious["DeadCount"], 'TheGroundHugger': 'O homem que caio mais vezes ' + this.getMax(this.extraDataUnconscious["TheGroundHugger"], "count").unit_id.user_name }
+		this.keyList = { 'DeadCount': 'Numero de mortes: ' + this.extraDataUnconscious["DeadCount"], 'TheGroundHugger': 'O homem que caio mais vezes ' + this.getMax(this.extraDataUnconscious["TheGroundHugger"], "count").unit_id.userName }
 
 
 	}

@@ -46,7 +46,7 @@ export class MissionsComponent implements OnInit {
 
 	}
 	CreateMission() {
-		this.router.navigate(['home'])
+		this.router.navigate(['CreateMission'])
 	}
 }
 

@@ -1,35 +1,38 @@
 <div class="d-flex justify-content-center h-100">
-    <div class="card">
-        <div class="card-header">
-            <h3>Sign Up</h3>
-            <div class="d-flex justify-content-end social_icon">
-                <span><i class="fab fa-facebook-square"></i></span>
-                <span><i class="fab fa-google-plus-square"></i></span>
-                <span><i class="fab fa-twitter-square"></i></span>
-            </div>
-        </div>
-        <div class="card-body">
-            <form>
-                <div class="input-group form-group">
-                    <input type="text" class="form-control" placeholder="username">
-                    
-                </div>
-                <div class="input-group form-group">
-                    <input type="text" class="form-control" placeholder="SteamID">
-                </div>
-                <div class="input-group form-group">
-                    <input type="text" class="form-control" placeholder="VestName">
-                </div>
-                <div class="input-group form-group">
-                    <input type="password" class="form-control" placeholder="password">
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="register" class="btn float-right login_btn">
-                </div>
-            </form>
-        </div>
-    </div>
+	<div class="card">
+		<div class="card-body">
+			<form [formGroup]='signUp' (ngSubmit)="onSubmit()">
+				<div class="input-group form-group">
+					<input type="text" class="form-control" formControlName="email" placeholder="Email">
+				</div>
+				<p style="color:black;" [innerHtml]='checkValidator(getNames("email"),"email")'>
+				</p>
+				<div class="input-group form-group">
+					<input type="password" class="form-control" placeholder="password" formControlName="passWord">
+				</div>
+				<p style="color:black;" [innerHtml]='checkValidator(getNames("passWord"),"passWord")'>
+				</p>
+				<div class="input-group form-group">
+					<input type="text" class="form-control" formControlName="userName" placeholder="username">
+				</div>
+				<p style="color:black;" [innerHtml]='checkValidator(getNames("userName"),"userName")'>
+
+				</p>
+				<div class="input-group form-group">
+					<input type="text" class="form-control" formControlName="steamID" placeholder="SteamID">
+				</div>
+				<p style="color:black;" [innerHtml]='checkValidator(getNames("steamID"),"SteamID")'>
+				</p>
+				<div class="input-group form-group">
+					<input type="text" class="form-control" placeholder="VestName" formControlName="vestName">
+				</div>
+				<p style="color:black;" [innerHtml]='checkValidator(getNames("vestName"),"vestName")'>
+				</p>
+
+				<div class="form-group">
+					<input type="submit" value="register" class="btn float-right login_btn">
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
-
-
-
