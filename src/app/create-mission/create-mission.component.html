@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]='mission' (ngSubmit)="onSubmit()">
 	<label class="col-sm-12 col-form-label">Create Campanha</label>
 	<div class="form-group row">
 		<label for="inputName" class="col-sm-12 col-form-label">Name</label>
@@ -13,16 +13,16 @@
 				<div class="form-group row">
 					<label for="slots" class="col-form-label col-12">Slots</label>
 					<div class="col-12">
-						<input for="slots" class="form-control" placeholder="Slots" />
+						<input for="slots" class="form-control" formControlName="slots" placeholder="Slots" />
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-8">
 			<div class="form-group row">
-				<label for="slots" class="col-12 col-form-label">Data</label>
+				<label class="col-12 col-form-label">Data</label>
 				<div class="col-12">
-					<input for="slots" type="datetime-local" class="form-control " placeholder="Data" />
+					<input type="datetime-local" formControlName="data" class="form-control " placeholder="Data" />
 				</div>
 			</div>
 		</div>
