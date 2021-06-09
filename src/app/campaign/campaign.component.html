@@ -1,8 +1,8 @@
 <div class="spinner-border text-primary" [hidden]="campagain" role="status">
 	<span class="sr-only">Loading...</span>
 </div>
-<div class="error-message" [hidden]="!noLoginUser" role="status">
-	<h3>Login para ver a paginha</h3>
+<div class="error-message" [hidden]="!noLoginUser" role="status" [innerHTML]="msg">
+	<h3></h3>
 </div>
 
 

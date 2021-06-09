@@ -1,19 +1,7 @@
 /* Importing Bootstrap SCSS file. */
+@import "custom-variables";
 @import "~bootstrap/scss/bootstrap";
 
-$red: #f00031;
-$orange: #ff8900;
-$green: #00f09d;
-
-$white: #ffffff;
-
-$theme-colors: (
-	primary: $orange,
-	secondary: $white,
-	success: $green,
-	warning: $red,
-	danger: $red,
-);
 html,
 body {
 	height: 100%;

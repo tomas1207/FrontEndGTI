@@ -16,11 +16,14 @@ export class ArmaComponent implements OnInit {
 	maxPropertyValue: any
 	loaded: boolean
 	keyList: any = {}
+	msg: any;
+	noLoginUser: any
 	objectKeys = Object.keys
 
 	constructor(private httpClient: NormalEndpointService) { }
 
 	ngOnInit(): void {
+
 		this.loaded = false;
 		console.log(this.missionID)
 		this.httpParams = new HttpParams().set('mission', this.missionID)
@@ -31,7 +34,19 @@ export class ArmaComponent implements OnInit {
 			this.extraDataHandler()
 			console.log(this.extraDataShoots);
 			this.loaded = true;
-		})
+		}, (error => {
+
+			if (error.error.code == "token_not_valid") {
+				this.noLoginUser = true
+				this.msg = "<h3>Login necessário para ver a pagina 💩 </h3>"
+			} else if (error.status == 401) {
+				this.noLoginUser = true
+				this.msg = "<h3>Login necessário para ver a pagina 💩</h3>"
+			} else {
+				this.noLoginUser = true
+				this.msg = "<h3>Erro no servidor 🏗️</h3>"
+			}
+		}))
 	}
 
 

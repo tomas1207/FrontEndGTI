@@ -13,11 +13,6 @@
 	background-position: center;
 	background-repeat: no-repeat;
 }
-
-:root {
-	--primary: #ff8900;
-	--white: #ffffff;
-	--black: #161a1a;
-	--success: #00f09d;
-	--erro: #f00031;
+.footer {
+	background-color: var(--blank);
 }

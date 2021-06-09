@@ -10,6 +10,8 @@ import { NormalEndpointService } from '../services/normal-endpoint.service';
 export class CreataCamComponent implements OnInit {
 	public filterDate: Date;
 	errorList: any = {}
+	msg: any;
+	noLoginUser: any
 	success: boolean = false;
 	campaign: FormGroup = new FormGroup({});
 	constructor(private fb: FormBuilder, private http: NormalEndpointService) { }
@@ -62,6 +64,9 @@ export class CreataCamComponent implements OnInit {
 			for (key in error.error) {
 				this.errorList[key] = error.error[key] + "";
 			}
+
+
+
 
 		}))
 

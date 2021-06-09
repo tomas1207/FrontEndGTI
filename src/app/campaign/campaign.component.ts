@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CampaignComponent implements OnInit {
 
-
+	msg: any
 	count: any = {}
 	campagain: any = {}
 	httpParams: any
@@ -34,9 +34,16 @@ export class CampaignComponent implements OnInit {
 				})
 			}
 		}, (error => {
-			console.log(error.error.code)
+
 			if (error.error.code == "token_not_valid") {
 				this.noLoginUser = true
+				this.msg = "<h3>Login necessário para ver a pagina 💩 </h3>"
+			} else if (error.status == 401) {
+				this.noLoginUser = true
+				this.msg = "<h3>Login necessário para ver a pagina 💩</h3>"
+			} else {
+				this.noLoginUser = true
+				this.msg = "<h3>Erro no servidor 🏗️</h3>"
 			}
 		}))
 

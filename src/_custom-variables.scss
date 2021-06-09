@@ -1,0 +1,15 @@
+$red: #f00031;
+$orange: #ff8900;
+$green: #00f09d;
+
+$white: #ffffff;
+$black: #151919;
+
+$theme-colors: (
+	primary: $orange,
+	secondary: $white,
+	success: $green,
+	warning: $red,
+	danger: $red,
+	black: $black,
+);

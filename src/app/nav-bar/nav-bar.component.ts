@@ -23,9 +23,9 @@ export class NavBarComponent implements OnInit {
 	checkLoginUser(): boolean {
 		if (sessionStorage.getItem('access') != undefined) {
 			return true;
-		} else {
-			return false;
-		}
+		} else if (localStorage.getItem('access') != undefined) {
+			return true;
+		} else { return false; }
 	}
 	logoutUser() {
 		this.isUserLogin = false;
