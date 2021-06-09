@@ -24,7 +24,7 @@ const routes: Routes = [
 	{ path: 'Register', component: RegisterComponent },
 	{ path: 'Medical/:id', component: MedicalComponent },
 	{ path: 'Brefing/:id', component: BrefingComponent },
-	{ path: 'CreateMission', component: CreateMissionComponent },
+	{ path: 'CreateMission/:id', component: CreateMissionComponent },
 	{ path: '', component: HomeComponent }
 ];
 

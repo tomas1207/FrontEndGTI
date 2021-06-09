@@ -53,11 +53,13 @@ export class RegisterComponent implements OnInit {
 		}
 	}
 	onSubmit() {
+		console.log(this.bodyGenerator())
 		this.http.httpPost('api/users/register/', this.bodyGenerator()).subscribe(data => {
 			this.router.navigate(['/'])
 
 		}, (error => {
 			var key: any
+			console.log(error)
 
 			for (key in error.error) {
 				this.errorList[key] = error.error[key] + "";

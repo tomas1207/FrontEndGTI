@@ -2,6 +2,7 @@ import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { NormalEndpointService } from "../services/normal-endpoint.service";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-brefing',
@@ -11,24 +12,25 @@ import { NormalEndpointService } from "../services/normal-endpoint.service";
 export class BrefingComponent implements OnInit {
 	missionObject: any;
 	userobj: any;
+	routeSub: any;
+	missionID: any;
 	slotsavl: number;
 	httpParamas: any;
 
-	constructor(private httpClient: NormalEndpointService) { }
+	constructor(private httpClient: NormalEndpointService, private router: ActivatedRoute) { }
 
 	ngOnInit(): void {
-		if (window.history.state.id == undefined) {
-			this.missionObject = sessionStorage.getItem("brefing")
-		} else {
-			console.log(window.history.state)
-			sessionStorage.setItem("brefing", JSON.stringify(window.history.state))
-			this.missionObject = sessionStorage.getItem("brefing")
-		}
-		this.missionObject = JSON.parse(this.missionObject)
-		console.log(this.missionObject)
-		this.slotsavl = Object.keys(this.missionObject.joined).length;
-		this.userobj = localStorage.getItem("userinfo")
-		this.userobj = JSON.parse(this.userobj)
+		this.routeSub = this.router.params.subscribe(params => {
+			this.missionID = params['id']
+		});
+		this.httpClient.httpGet("/api/mission/details", new HttpParams().set('mission', this.missionID)).subscribe((res) => {
+			this.missionObject = res
+			console.log(this.missionObject.Data[0])
+			this.slotsavl = Object.keys(this.missionObject.Data[0].joined).length;
+			this.userobj = localStorage.getItem("userinfo")
+			this.userobj = JSON.parse(this.userobj)
+		})
+
 	}
 
 	joinmission(): void {

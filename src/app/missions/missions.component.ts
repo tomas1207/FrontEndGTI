@@ -25,7 +25,6 @@ export class MissionsComponent implements OnInit {
 			console.log(this.campaignName)
 		} else {
 			sessionStorage.setItem("campaignName", this.campaignName)
-			console.log("aqui esta o codigo");
 
 		}
 	}
@@ -46,7 +45,7 @@ export class MissionsComponent implements OnInit {
 
 	}
 	CreateMission() {
-		this.router.navigate(['CreateMission'])
+		this.router.navigate(['CreateMission', this.id])
 	}
 }
 

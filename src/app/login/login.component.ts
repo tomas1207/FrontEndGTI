@@ -4,6 +4,7 @@ import { Login } from '../Models/Login/login'
 import { CookieService } from 'ngx-cookie-service'
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 
 
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
 	loginerro = false;
 	@ViewChild('content') html: any
 	@Output() loginuser: EventEmitter<any> = new EventEmitter();
-	constructor(private httpClient: HttpClient, private cookie: CookieService, private modalService: NgbModal, public modal: NgbActiveModal) { }
+	constructor(private httpClient: HttpClient, private cookie: CookieService, private modalService: NgbModal, public modal: NgbActiveModal, private router: Router) { }
 
 	ngOnInit(): void {
 
@@ -38,10 +39,12 @@ export class LoginComponent implements OnInit {
 
 		this.httpClient.post<any>('/api/users/login/', this.model).subscribe(data => {
 			console.log(data)
-
+			if (data.msg == "") {
+				this.loginerro = true;
+				return
+			}
 			if (this.remember) {
 				localStorage.setItem('access', data.access)
-
 				localStorage.setItem('refresh', data.refresh)
 			} else {
 				sessionStorage.setItem('access', data.access)
@@ -78,5 +81,9 @@ export class LoginComponent implements OnInit {
 	}
 	changeRemember(e: any) {
 		this.remember = !this.remember;
+	}
+	signUp() {
+		this.modalService.dismissAll()
+		this.router.navigate(['Register'])
 	}
 }

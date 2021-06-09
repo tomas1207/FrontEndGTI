@@ -8,8 +8,7 @@
 </div> -->
 <div class="row" *ngIf="loaded else spinner">
 	<div *ngFor="let key of objectKeys(keyList)" class="col-11">
-		<div>
-			{{keyList[key]}}
+		<div [innerHtml]="keyList[key]">
 		</div>
 	</div>
 </div>

@@ -14,9 +14,7 @@ export class NormalEndpointService {
 		this.checkuserstorage()
 		return this.http.get(url, {
 			//TODO: Fazer as headers abstrac
-			headers: new HttpHeaders({
-				'Authorization': 'Bearer ' + this.storageUser.getItem('access')
-			}),
+			headers: this.httpHeaders(),
 			params: http!
 		})
 	}
@@ -24,26 +22,33 @@ export class NormalEndpointService {
 		this.checkuserstorage();
 		return this.http.post(url, boby, {
 			//TODO: Fazer as headers abstrac
-			headers: new HttpHeaders({
-				'Authorization': 'Bearer ' + this.storageUser.getItem('access')
-			})
+			headers: this.httpHeaders()
 		})
 	}
 	httpPut(url: any, boby: any, http = null): Observable<object> {
 		this.checkuserstorage();
 		return this.http.put(url, boby, {
 			//TODO: Fazer as headers abstrac
-			headers: new HttpHeaders({
-				'Authorization': 'Bearer ' + this.storageUser.getItem('access')
-			})
+			headers: this.httpHeaders()
 		})
 	}
-	private checkuserstorage() {
+	private checkuserstorage(): any {
 		if (sessionStorage.getItem("access") != undefined) {
-			this.storageUser = sessionStorage
+			return sessionStorage
 		}
-		else {
-			this.storageUser = localStorage
+		else if (localStorage.getItem("access") != undefined) {
+			return localStorage
+		} else {
+			return null
 		}
+	}
+	private httpHeaders(): any {
+		console.log(this.checkuserstorage());
+		if (this.checkuserstorage() == null) {
+			return null;
+		}
+		return new HttpHeaders({
+			'Authorization': 'Bearer ' + this.checkuserstorage().getItem('access')
+		})
 	}
 }

@@ -14,6 +14,7 @@ export class CampaignComponent implements OnInit {
 	count: any = {}
 	campagain: any = {}
 	httpParams: any
+	noLoginUser: boolean = false;
 	isMenuCollapsed = true;
 	isMenuCollapsed1 = true;
 	constructor(private httpClient: NormalEndpointService) {
@@ -23,8 +24,6 @@ export class CampaignComponent implements OnInit {
 
 		this.httpClient.httpGet('/api/campaign/').subscribe(data => {
 			this.campagain = data
-			console.log(this.campagain);
-
 
 			for (let index = 0; index < this.campagain.Data.length; index++) {
 				const element = this.campagain.Data[index];
@@ -34,7 +33,12 @@ export class CampaignComponent implements OnInit {
 					this.count[element.name] = data
 				})
 			}
-		})
+		}, (error => {
+			console.log(error.error.code)
+			if (error.error.code == "token_not_valid") {
+				this.noLoginUser = true
+			}
+		}))
 
 	}
 	ngAfterViewInit() {

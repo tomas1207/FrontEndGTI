@@ -1,10 +1,15 @@
+<h3 *ngIf="missionCreated" style="color:chartreusew">Missao# criada com sucesso</h3>
+
 <form [formGroup]='mission' (ngSubmit)="onSubmit()">
-	<label class="col-sm-12 col-form-label">Create Campanha</label>
+	<label class="col-sm-12 col-form-label">Criar Missao</label>
 	<div class="form-group row">
 		<label for="inputName" class="col-sm-12 col-form-label">Name</label>
 		<div class="col-12">
-			<input type="text" class="form-control" name="inputName" id="inputName" placeholder="Name">
+			<input type="text" class="form-control" formControlName="name" name="inputName" id="inputName"
+				placeholder="Name">
 		</div>
+		<p style="color:white;" class="col-sm-12 col-form-label" [innerHtml]='checkValidator(getNames("name"),"name")'>
+		</p>
 	</div>
 
 	<div class="form-row">
@@ -15,6 +20,8 @@
 					<div class="col-12">
 						<input for="slots" class="form-control" formControlName="slots" placeholder="Slots" />
 					</div>
+					<p style="color:white;" class="col-sm-12 col-form-label"
+						[innerHtml]='checkValidator(getNames("slots"),"slots")'></p>
 				</div>
 			</div>
 		</div>
@@ -24,6 +31,9 @@
 				<div class="col-12">
 					<input type="datetime-local" formControlName="data" class="form-control " placeholder="Data" />
 				</div>
+				<p style="color:white;" class="col-sm-12 col-form-label"
+					[innerHtml]='checkValidator(getNames("data"),"data")'>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -31,19 +41,15 @@
 	<div class="form-group row">
 		<label for="inputName" class="col-sm-12 col-form-label">Breifing</label>
 		<div class="col-12">
-			<textarea class='form-control' style="resize: none;" rows=7></textarea>
+			<textarea class='form-control' formControlName="breifing" style="resize: none;" rows=7></textarea>
 		</div>
-	</div>
-	<div class="form-group row">
-		<label for="inputName" class="col-12 col-form-label">Logo</label>
-		<div class="col-7">
-			<input type='file' accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" class='form-control-file'>
-		</div>
+		<p style="color:white;" class="col-sm-12 col-form-label"
+			[innerHtml]='checkValidator(getNames("breifing"),"breifing")'></p>
 	</div>
 
 	<div class="form-row">
 		<div class="col-12">
-			<button type="submit" class="btn btn-primary">Criar Missao</button>
+			<button type="submit" [disabled]="!mission.valid" class="btn btn-primary">Criar Missao</button>
 		</div>
 	</div>
 
