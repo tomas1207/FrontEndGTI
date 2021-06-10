@@ -17,6 +17,7 @@ export class BrefingComponent implements OnInit {
 	slotsavl: number;
 	httpParamas: any;
 	msg: any;
+	id: any;
 	noLoginUser: any
 
 	constructor(private httpClient: NormalEndpointService, private router: ActivatedRoute) { }
@@ -27,10 +28,11 @@ export class BrefingComponent implements OnInit {
 		});
 		this.httpClient.httpGet("/api/mission/details", new HttpParams().set('mission', this.missionID)).subscribe((res) => {
 			this.missionObject = res
-			console.log(this.missionObject.Data[0])
+			console.log(this.missionObject.Data)
 			this.slotsavl = Object.keys(this.missionObject.Data[0].joined).length;
 			this.userobj = localStorage.getItem("userinfo")
 			this.userobj = JSON.parse(this.userobj)
+			this.id = this.missionObject.Data[0].id
 		}, (error => {
 
 			if (error.error.code == "token_not_valid") {
@@ -48,15 +50,15 @@ export class BrefingComponent implements OnInit {
 	}
 
 	joinmission(): void {
-		this.httpParamas = new HttpParams().set('mission', this.missionObject.id)
-		this.httpClient.httpPost("/api/mission/register", { "mission": this.missionObject.id }, this.httpParamas).subscribe(data => {
+		this.httpParamas = new HttpParams().set('mission', this.missionID)
+		this.httpClient.httpPost("/api/mission/register", this.httpParamas).subscribe(data => {
 			this.missionObject = data
 			this.slotsavl = Object.keys(this.missionObject.joined).length;
 		})
 	}
 	endmission(): void {
-		var id = this.missionObject.id
-		this.httpClient.httpPut("/api/mission/", { "id": id }).subscribe((res) => {
+
+		this.httpClient.httpPut("/api/mission/", { "id": this.missionID }).subscribe((res) => {
 			console.log(res)
 		})
 

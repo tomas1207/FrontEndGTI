@@ -12,10 +12,17 @@ export class MissionsComponent implements OnInit {
 	campaignName: any
 	httpParamas: any
 	id: any
+	userid: any
+	userinfo: any;
+	jsonUserinfo: any
 	constructor(private httpClient: NormalEndpointService, private activatedroute: ActivatedRoute, private router: Router) {
 		this.activatedroute.params.subscribe(data => {
 			this.id = data["id"]
 		})
+		this.userinfo = localStorage.getItem("userinfo")
+		this.jsonUserinfo = JSON.parse(this.userinfo);
+		this.userid = this.jsonUserinfo.id;
+
 	}
 
 	ngOnInit(): void {
@@ -27,13 +34,14 @@ export class MissionsComponent implements OnInit {
 			sessionStorage.setItem("campaignName", this.campaignName)
 
 		}
-	}
-	ngAfterViewInit() {
 		this.httpParamas = new HttpParams().set('campaign', this.id)
 		this.httpClient.httpGet("/api/mission", this.httpParamas).subscribe(data => {
 			console.log(data)
 			this.missions = data
 		})
+	}
+	ngAfterViewInit() {
+
 	}
 	ismissionEnd(item: any) {
 		if (item.isfinish) {
