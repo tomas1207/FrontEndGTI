@@ -12,7 +12,7 @@ export class NormalEndpointService {
 	httpGet(url: any, http: HttpParams = new HttpParams()): Observable<object> {
 		//TODO New System for sessionStorage Maybey key check
 		this.checkuserstorage()
-		return this.http.get(url, {
+		return this.http.get(this.urlconst(url), {
 			//TODO: Fazer as headers abstrac
 			headers: this.httpHeaders(),
 			params: http!
@@ -20,17 +20,20 @@ export class NormalEndpointService {
 	}
 	httpPost(url: any, boby: any, http = null): Observable<object> {
 		this.checkuserstorage();
-		return this.http.post(url, boby, {
+		return this.http.post(this.urlconst(url), boby, {
 			//TODO: Fazer as headers abstrac
 			headers: this.httpHeaders()
 		})
 	}
 	httpPut(url: any, boby: any, http = null): Observable<object> {
 		this.checkuserstorage();
-		return this.http.put(url, boby, {
+		return this.http.put(this.urlconst(url), boby, {
 			//TODO: Fazer as headers abstrac
 			headers: this.httpHeaders()
 		})
+	}
+	private urlconst(url: any) {
+		return 'https://gtifenix.ddns.net:4200/' + url
 	}
 	private checkuserstorage(): any {
 		if (sessionStorage.getItem("access") != undefined) {
