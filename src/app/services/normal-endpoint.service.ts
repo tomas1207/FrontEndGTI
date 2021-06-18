@@ -33,7 +33,7 @@ export class NormalEndpointService {
 		})
 	}
 	private urlconst(url: any) {
-		return 'https://gtifenix.ddns.net:4200/' + url
+		return 'https://gtifenix.ddns.net' + url
 	}
 	private checkuserstorage(): any {
 		if (sessionStorage.getItem("access") != undefined) {
