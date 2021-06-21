@@ -13,7 +13,7 @@ export class CreateMissionComponent implements OnInit {
 	errorList: any = {}
 	missionCreated = false
 	id: any
-	constructor(private fb: FormBuilder, private http: NormalEndpointService, private activatedroute: ActivatedRoute) {
+	constructor(private fb: FormBuilder, private http: NormalEndpointService, private router: Router, private activatedroute: ActivatedRoute) {
 		this.activatedroute.params.subscribe(data => {
 			this.id = data["id"]
 		})
@@ -47,6 +47,7 @@ export class CreateMissionComponent implements OnInit {
 		this.http.httpPost('/api/mission/', this.bodyGenerator()).subscribe(data => {
 			console.log(data)
 			this.missionCreated = true
+			this.router.navigate(['campaign'])
 
 		}, (error => {
 			var key: any

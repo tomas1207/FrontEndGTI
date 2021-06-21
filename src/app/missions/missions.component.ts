@@ -48,7 +48,7 @@ export class MissionsComponent implements OnInit {
 			this.router.navigate(['/debriefing', item.id], { state: item.id })
 		} else {
 			console.log(item)
-			this.router.navigate(['/Brefing', item.id], { state: item })
+			this.router.navigate(['/briefing', item.id], { state: item })
 		}
 
 	}

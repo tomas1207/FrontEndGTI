@@ -16,14 +16,14 @@ import { CreateMissionComponent } from './create-mission/create-mission.componen
 
 const routes: Routes = [
 	{ path: 'Arma', component: ArmaComponent },
-	{ path: 'Campaing', component: CampaignComponent },
+	{ path: 'campaign', component: CampaignComponent },
 	{ path: 'debriefing/:id', component: DebriefingComponent },
 	{ path: 'Missions/:id', component: MissionsComponent },
-	{ path: 'createCampaing', component: CreataCamComponent },
+	{ path: 'createcampaign', component: CreataCamComponent },
 	{ path: 'Login', component: LoginComponent },
 	{ path: 'Register', component: RegisterComponent },
 	{ path: 'Medical/:id', component: MedicalComponent },
-	{ path: 'Brefing/:id', component: BrefingComponent },
+	{ path: 'briefing/:id', component: BrefingComponent },
 	{ path: 'CreateMission/:id', component: CreateMissionComponent },
 	{ path: '', component: HomeComponent }
 ];
