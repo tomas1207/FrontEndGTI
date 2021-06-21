@@ -50,6 +50,7 @@ export class BrefingComponent implements OnInit {
 	}
 
 	joinmission(): void {
+		this.missionObject.Data[0].joined = this.userobj;
 		this.httpParamas = new HttpParams().set('mission', this.missionID)
 		this.httpClient.httpPost("/api/mission/register", this.httpParamas).subscribe(data => {
 			this.missionObject = data
