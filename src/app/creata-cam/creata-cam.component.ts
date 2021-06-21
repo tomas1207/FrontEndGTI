@@ -13,6 +13,7 @@ export class CreataCamComponent implements OnInit {
 	msg: any;
 	noLoginUser: any
 	success: boolean = false;
+	checkstogare: any
 	campaign: FormGroup = new FormGroup({});
 	constructor(private fb: FormBuilder, private http: NormalEndpointService) { }
 
@@ -22,6 +23,11 @@ export class CreataCamComponent implements OnInit {
 			logo: ['', [Validators.required]],
 			ismaincampaing: [false, [Validators.required]]
 		})
+		this.checkstogare = this.http.checkuserstorage();
+		if (this.checkstogare == null) {
+			this.noLoginUser = true
+			this.msg = "<h3>Login necessário para ver a pagina 💩</h3>"
+		}
 	}
 	checkValidator(validatorNames: any, name: any) {
 		if (validatorNames.invalid && (validatorNames.dirty || validatorNames.touched)) {

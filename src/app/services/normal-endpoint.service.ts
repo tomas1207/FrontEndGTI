@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class NormalEndpointService {
 	storageUser: any
-
+	publicUrl: string = 'https://gtifenix.ddns.net'
 	constructor(private http: HttpClient) { }
 	httpGet(url: any, http: HttpParams = new HttpParams()): Observable<object> {
 		//TODO New System for sessionStorage Maybey key check
@@ -35,7 +35,7 @@ export class NormalEndpointService {
 	private urlconst(url: any) {
 		return 'https://gtifenix.ddns.net' + url
 	}
-	private checkuserstorage(): any {
+	checkuserstorage(): any {
 		if (sessionStorage.getItem("access") != undefined) {
 			return sessionStorage
 		}

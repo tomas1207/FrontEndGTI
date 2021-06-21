@@ -58,7 +58,7 @@ export class ArmaComponent implements OnInit {
 	}
 
 	extraDataHandler() {
-		this.keyList = { 'TriggerHappy': 'Trigger Happy : O jogardor <b>' + this.getMax(this.extraDataShoots["TriggerHappy"], "count").unit.userName + "</b> foi quem disparou mais com <b> " + this.getMax(this.extraDataShoots["TriggerHappy"], "count").count + "</b> tiros", 'mostWeaponUsed': 'Arma mais utilizada : Foi ' + this.getMax(this.extraDataShoots["mostWeaponUsed"], "count").weapon + " com " + this.getMax(this.extraDataShoots["mostWeaponUsed"], "count").count + " jogadores a jogar com ela", 'mostUsedMode': 'Modo mais utilizado : Foi ' + this.getMax(this.extraDataShoots["mostUsedMode"], "count").mode, 'AmmoDispenser': 'A ammo mais utilizada foi ' + this.getMax(this.extraDataShoots["AmmoDispenser"], "count").ammo }
+		this.keyList = { 'TriggerHappy': 'Trigger Happy : O jogardor <b>' + this.getMax(this.extraDataShoots["TriggerHappy"], "count").unit.userName + "</b> foi quem disparou mais com <b> " + this.getMax(this.extraDataShoots["TriggerHappy"], "count").count + "</b> tiros", 'mostWeaponUsed': 'Arma mais utilizada : Foi ' + this.getMax(this.extraDataShoots["mostWeaponUsed"], "count").weapon + " com " + this.getMax(this.extraDataShoots["mostWeaponUsed"], "count").count + " tiros com ela", 'mostUsedMode': 'Modo mais utilizado : Foi ' + this.getMax(this.extraDataShoots["mostUsedMode"], "count").mode, 'AmmoDispenser': 'A ammo mais utilizada foi ' + this.getMax(this.extraDataShoots["AmmoDispenser"], "count").ammo }
 
 
 	}

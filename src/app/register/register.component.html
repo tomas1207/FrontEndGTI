@@ -3,23 +3,23 @@
 		<div class="card-body">
 			<form [formGroup]='signUp' (ngSubmit)="onSubmit()">
 				<div class="input-group form-group">
-					<input type="text" class="form-control" formControlName="email" placeholder="Email">
+					<input type="text" class="form-control" formControlName="Email" placeholder="Email">
 				</div>
 				<p style="color:black;" [innerHtml]='checkValidator(getNames("email"),"email")'>
 				</p>
 				<div class="input-group form-group">
-					<input type="password" class="form-control" placeholder="password" formControlName="passWord">
+					<input type="password" class="form-control" placeholder="Password" formControlName="passWord">
 				</div>
 				<p style="color:black;" [innerHtml]='checkValidator(getNames("passWord"),"passWord")'>
 				</p>
 				<div class="input-group form-group">
-					<input type="text" class="form-control" formControlName="userName" placeholder="username">
+					<input type="text" class="form-control" formControlName="UserName" placeholder="username">
 				</div>
 				<p style="color:black;" [innerHtml]='checkValidator(getNames("userName"),"userName")'>
 
 				</p>
 				<div class="input-group form-group">
-					<input type="text" class="form-control" formControlName="steamID" placeholder="SteamID">
+					<input type="text" class="form-control" formControlName="SteamID 64" placeholder="SteamID">
 				</div>
 				<p style="color:black;" [innerHtml]='checkValidator(getNames("steamID"),"SteamID")'>
 				</p>

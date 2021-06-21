@@ -36,9 +36,8 @@ export class LoginComponent implements OnInit {
 	onSubmit() {
 		this.loading = true;
 		this.submitted = true;
-
+		this.loginerro = false;
 		this.httpClient.post<any>('https://gtifenix.ddns.net/api/users/login/', this.model).subscribe(data => {
-			console.log(data)
 			if (data.msg == "") {
 				this.loginerro = true;
 				return

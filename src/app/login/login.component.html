@@ -15,7 +15,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Username" id="username" required
+						<input type="text" class="form-control" placeholder="Email" id="username" required
 							[(ngModel)]="model.email" name="name" #name="ngModel" />
 					</div>
 					<div class="input-group form-group">
@@ -35,7 +35,7 @@
 				</div>
 				<div class="card-footer">
 					<div class="d-flex justify-content-center links">
-						Don't have an account?<a [routerLink]="" (click)="signUp()">Sign Up</a>
+						Nao tens conta<a [routerLink]="" (click)="signUp()">Sign Up</a>
 					</div>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 
 	</div>
 	<div class="modal-footer">
-		<h3 [hidden]="!loginerro" style="color: red;">Login invalido</h3>
+		<h3 [hidden]="!loginerro" style="color: red;">Login inválido</h3>
 		<input type="button" class="btn login-btn" [disabled]="!loginFrom.form.valid" (click)="onSubmit()"
 			value="Login">
 

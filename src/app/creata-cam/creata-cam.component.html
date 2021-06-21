@@ -1,8 +1,13 @@
+<div class="error-message" [hidden]="!noLoginUser" role="status" [innerHTML]="msg">
+	<h3></h3>
+</div>
+
+
 <h3 *ngIf="success" style="color:chartreusew">Campanha criada com sucesso</h3>
-<form [formGroup]='campaign' (ngSubmit)="onSubmit()">
+<form *ngIf="!noLoginUser" [formGroup]='campaign' (ngSubmit)="onSubmit()">
 	<label class="col-sm-12 col-form-label">Criar Campanha</label>
 	<div class="form-group row">
-		<label for="inputName" class="col-sm-12 col-form-label">Name</label>
+		<label for="inputName" class="col-sm-12 col-form-label">Nome</label>
 		<div class="col-12">
 			<input type="text" class="form-control" formControlName="name" placeholder="Name">
 		</div>
@@ -12,9 +17,6 @@
 	<div class="form-group row">
 		<label class="col-6 col-form-label"> <input type="checkbox" formControlName="ismaincampaing"> Campanha
 			principal</label>
-
-
-
 		<p style="color:white;" class="col-sm-12 col-form-label"
 			[innerHtml]='checkValidator(getNames("ismaincampaing"),"ismaincampaing")'>
 		</p>

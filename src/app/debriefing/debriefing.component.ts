@@ -22,7 +22,7 @@ export class DebriefingComponent implements OnInit {
 			this.missionID = params['id']
 			console.log(this.missionID)
 		});
-		this.http.httpGet('/wapi/mission/details', new HttpParams().set('mission', this.missionID)).subscribe(data => {
+		this.http.httpGet('/api/mission/details', new HttpParams().set('mission', this.missionID)).subscribe(data => {
 			this.mission = data
 			console.log(this.mission)
 		}, (error => {

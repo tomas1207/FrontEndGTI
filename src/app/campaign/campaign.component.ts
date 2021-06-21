@@ -28,7 +28,7 @@ export class CampaignComponent implements OnInit {
 
 			for (let index = 0; index < this.campagain.Data.length; index++) {
 				const element = this.campagain.Data[index];
-				this.campagain.Data[index].image = 'http://localhost:8000' + element.image
+				this.campagain.Data[index].image = this.httpClient.publicUrl + element.image
 				this.httpParams = new HttpParams().set('campaign', element.id)
 				this.httpClient.httpGet('/api/campaign/count', this.httpParams).subscribe(data => {
 					this.count[element.name] = data

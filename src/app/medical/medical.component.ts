@@ -52,7 +52,7 @@ export class MedicalComponent implements OnInit {
 	}
 	extraDataHandler() {
 		this.keyList = {
-			'bestMedic': 'Melhor medico : O jogardor <b>' + this.getMax(this.extraData["bestMedic"], "count").healer_id.userName + "</b> foi o melhor medico", 'holey': 'Carne para canhão : Foi ' + this.getMax(this.extraData["holey"], "count").healed_id.userName + " com " + this.getMax(this.extraData["holey"], "count").count + " buracos para a proxima escode-te atraz das pedras", 'mostShootZone': 'A equipa em geral velou mais tiros no/a ' + this.getMax(this.extraData["mostShootZone"], "count").hitLocation + " com " + this.getMax(this.extraData["mostShootZone"], "count").count + " tiros", 'mostusedItem': 'O item mais utilizado foi ' + this.getMax(this.extraData["mostusedItem"], "count").typeOfHeal
+			'bestMedic': 'Melhor medico : O jogardor <b>' + this.getMax(this.extraData["bestMedic"], "count").healer_id.userName + "</b> foi o melhor medico", 'holey': 'Carne para canhão : Foi ' + this.getMax(this.extraData["holey"], "count").healed_id.userName + " com " + this.getMax(this.extraData["holey"], "count").count + " buracos para a proxima esconde-te atrás das pedras", 'mostShootZone': 'O local onde os jogadores levaram mais tiros foi no(a) ' + this.getMax(this.extraData["mostShootZone"], "count").hitLocation + " com " + this.getMax(this.extraData["mostShootZone"], "count").count + " tiros", 'mostusedItem': 'O item mais utilizado foi ' + this.getMax(this.extraData["mostusedItem"], "count").typeOfHeal
 		}
 
 	}
