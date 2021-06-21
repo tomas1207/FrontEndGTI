@@ -1,9 +1,9 @@
-<h3 *ngIf="missionCreated" style="color:chartreusew">Missao# criada com sucesso</h3>
+<h3 *ngIf="missionCreated" style="color:chartreusew">Missão criada com sucesso</h3>
 
 <form [formGroup]='mission' (ngSubmit)="onSubmit()">
 	<label class="col-sm-12 col-form-label">Criar Missao</label>
 	<div class="form-group row">
-		<label for="inputName" class="col-sm-12 col-form-label">Name</label>
+		<label for="inputName" class="col-sm-12 col-form-label">Nome</label>
 		<div class="col-12">
 			<input type="text" class="form-control" formControlName="name" name="inputName" id="inputName"
 				placeholder="Name">
@@ -39,17 +39,17 @@
 	</div>
 
 	<div class="form-group row">
-		<label for="inputName" class="col-sm-12 col-form-label">Breifing</label>
+		<label for="inputName" class="col-sm-12 col-form-label">Briefing</label>
 		<div class="col-12">
-			<textarea class='form-control' formControlName="breifing" style="resize: none;" rows=7></textarea>
+			<textarea class='form-control' formControlName="briefing" style="resize: none;" rows=7></textarea>
 		</div>
 		<p style="color:white;" class="col-sm-12 col-form-label"
-			[innerHtml]='checkValidator(getNames("breifing"),"breifing")'></p>
+			[innerHtml]='checkValidator(getNames("briefing"),"briefing")'></p>
 	</div>
 
 	<div class="form-row">
 		<div class="col-12">
-			<button type="submit" [disabled]="!mission.valid" class="btn btn-primary">Criar Missao</button>
+			<button type="submit" [disabled]="!mission.valid" class="btn btn-primary">Criar Missão</button>
 		</div>
 	</div>
 

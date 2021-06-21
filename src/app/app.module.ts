@@ -24,6 +24,7 @@ import { CreataCamComponent } from './creata-cam/creata-cam.component';
 import { DebriefingComponent } from './debriefing/debriefing.component';
 import { CreateMissionComponent } from './create-mission/create-mission.component';
 
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -40,6 +41,7 @@ import { CreateMissionComponent } from './create-mission/create-mission.componen
 		CreataCamComponent,
 		DebriefingComponent,
 		CreateMissionComponent,
+
 	],
 	imports: [
 		BrowserModule,
@@ -54,6 +56,6 @@ import { CreateMissionComponent } from './create-mission/create-mission.componen
 		FormsModule,
 	],
 	providers: [],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
 })
 export class AppModule { }

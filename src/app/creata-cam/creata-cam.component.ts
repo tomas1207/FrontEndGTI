@@ -54,7 +54,7 @@ export class CreataCamComponent implements OnInit {
 	}
 	onSubmit() {
 		console.log(this.bodyGenerator())
-		this.http.httpPost('api/campaign/', this.bodyGenerator()).subscribe(data => {
+		this.http.httpPost('/api/campaign/', this.bodyGenerator()).subscribe(data => {
 			this.success = true;
 			console.log(data)
 
