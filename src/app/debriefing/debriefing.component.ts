@@ -20,11 +20,9 @@ export class DebriefingComponent implements OnInit {
 
 		this.routeSub = this.router.params.subscribe(params => {
 			this.missionID = params['id']
-			console.log(this.missionID)
 		});
 		this.http.httpGet('/api/mission/details', new HttpParams().set('mission', this.missionID)).subscribe(data => {
 			this.mission = data
-			console.log(this.mission)
 		}, (error => {
 
 		}))

@@ -29,14 +29,12 @@ export class MissionsComponent implements OnInit {
 		this.campaignName = window.history.state.name
 		if (this.campaignName == undefined) {
 			this.campaignName = sessionStorage.getItem("campaignName")
-			console.log(this.campaignName)
 		} else {
 			sessionStorage.setItem("campaignName", this.campaignName)
 
 		}
 		this.httpParamas = new HttpParams().set('campaign', this.id)
 		this.httpClient.httpGet("/api/mission", this.httpParamas).subscribe(data => {
-			console.log(data)
 			this.missions = data
 		})
 	}
@@ -47,7 +45,6 @@ export class MissionsComponent implements OnInit {
 		if (item.isfinish) {
 			this.router.navigate(['/debriefing', item.id], { state: item.id })
 		} else {
-			console.log(item)
 			this.router.navigate(['/briefing', item.id], { state: item })
 		}
 

@@ -23,7 +23,6 @@ export class CampaignComponent implements OnInit {
 	ngOnInit(): void {
 
 		this.httpClient.httpGet('/api/campaign/').subscribe(data => {
-			console.log(data)
 			this.campagain = data
 
 			for (let index = 0; index < this.campagain.Data.length; index++) {

@@ -45,7 +45,6 @@ export class CreateMissionComponent implements OnInit {
 	}
 	onSubmit() {
 		this.http.httpPost('/api/mission/', this.bodyGenerator()).subscribe(data => {
-			console.log(data)
 			this.missionCreated = true
 			this.router.navigate(['campaign'])
 

@@ -25,14 +25,12 @@ export class ArmaComponent implements OnInit {
 	ngOnInit(): void {
 
 		this.loaded = false;
-		console.log(this.missionID)
 		this.httpParams = new HttpParams().set('mission', this.missionID)
 		this.httpClient.httpGet('/api/arma/shootsfired', this.httpParams).subscribe(data => {
 			this.shootsFired = data
 			this.extraDataShoots = this.shootsFired["ExtraData"]
 			//	this.keysList()
 			this.extraDataHandler()
-			console.log(this.extraDataShoots);
 			this.loaded = true;
 		}, (error => {
 

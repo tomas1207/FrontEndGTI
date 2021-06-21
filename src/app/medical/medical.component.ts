@@ -30,10 +30,8 @@ export class MedicalComponent implements OnInit {
 		this.httpClient.httpGet('/api/arma/medic', this.httpParams).subscribe(data => {
 			this.medical = data
 			this.extraData = this.medical["ExtraData"]
-			console.log(this.extraData)
 			//	this.keysList()
 			this.extraDataHandler()
-			console.log(this.keyList);
 			this.loaded = true;
 		})
 
@@ -45,7 +43,6 @@ export class MedicalComponent implements OnInit {
 	httpget(url: string) {
 		this.httpParams = new HttpParams().set('mission', this.missionID)
 		this.httpClient.httpGet(url, this.httpParams).subscribe(data => {
-			console.log(data)
 			this.medical.push(data)
 		})
 

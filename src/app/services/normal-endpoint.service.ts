@@ -46,7 +46,6 @@ export class NormalEndpointService {
 		}
 	}
 	private httpHeaders(): any {
-		console.log(this.checkuserstorage());
 		if (this.checkuserstorage() == null) {
 			return null;
 		}

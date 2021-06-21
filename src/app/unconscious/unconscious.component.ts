@@ -26,7 +26,6 @@ export class UnconsciousComponent implements OnInit {
 			this.unconscious = data
 			this.extraDataUnconscious = this.unconscious["ExtraData"]
 			//	this.keysList()
-			console.log(this.unconscious);
 			this.extraDataHandler()
 			this.loaded = true;
 		})

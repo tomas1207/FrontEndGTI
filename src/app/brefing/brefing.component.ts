@@ -28,7 +28,6 @@ export class BrefingComponent implements OnInit {
 		});
 		this.httpClient.httpGet("/api/mission/details", new HttpParams().set('mission', this.missionID)).subscribe((res) => {
 			this.missionObject = res
-			console.log(this.missionObject.Data)
 			this.slotsavl = Object.keys(this.missionObject.Data[0].joined).length;
 			this.userobj = localStorage.getItem("userinfo")
 			this.userobj = JSON.parse(this.userobj)
@@ -60,7 +59,7 @@ export class BrefingComponent implements OnInit {
 	endmission(): void {
 
 		this.httpClient.httpPut("/api/mission/", { "id": this.missionID }).subscribe((res) => {
-			console.log(res)
+
 		})
 
 	}

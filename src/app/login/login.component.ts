@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
 			this.loginuser.emit(true)
 			this.modalService.dismissAll()
 		}, error => {
-			console.log(error)
 
 			this.loginerro = true;
 		})
