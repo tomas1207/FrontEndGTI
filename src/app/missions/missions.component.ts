@@ -36,6 +36,7 @@ export class MissionsComponent implements OnInit {
 		this.httpParamas = new HttpParams().set('campaign', this.id)
 		this.httpClient.httpGet("/api/mission", this.httpParamas).subscribe(data => {
 			this.missions = data
+			console.log(this.missions)
 		})
 	}
 	ngAfterViewInit() {
@@ -53,5 +54,4 @@ export class MissionsComponent implements OnInit {
 		this.router.navigate(['CreateMission', this.id])
 	}
 }
-
 

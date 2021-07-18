@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
 	onSubmit() {
 		this.http.httpPost('/api/users/register/', this.bodyGenerator()).subscribe(data => {
 			this.router.navigate(['/'])
-
+			//TODO
 		}, (error => {
 			var key: any
 

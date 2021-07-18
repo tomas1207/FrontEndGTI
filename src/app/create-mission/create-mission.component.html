@@ -1,6 +1,6 @@
 <h3 *ngIf="missionCreated" style="color:chartreusew">Missão criada com sucesso</h3>
 
-<form [formGroup]='mission' (ngSubmit)="onSubmit()">
+<form [formGroup]='mission'>
 	<label class="col-sm-12 col-form-label">Criar Missao</label>
 	<div class="form-group row">
 		<label for="inputName" class="col-sm-12 col-form-label">Nome</label>
@@ -49,7 +49,8 @@
 
 	<div class="form-row">
 		<div class="col-12">
-			<button type="submit" [disabled]="!mission.valid" class="btn btn-primary">Criar Missão</button>
+			<button type="submit" [disabled]="!mission.valid" (click)="onSubmit()" class="btn btn-primary">Criar
+				Missão</button>
 		</div>
 	</div>
 

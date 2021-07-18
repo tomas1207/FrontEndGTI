@@ -38,7 +38,7 @@ export class CreateMissionComponent implements OnInit {
 
 		this.mission = this.fb.group({
 			name: ['', [Validators.required, Validators.maxLength(30)]],
-			breifing: ['', [Validators.required, Validators.maxLength(1500)]],
+			briefing: ['', [Validators.required, Validators.maxLength(1500)]],
 			slots: [''],
 			data: ['', [Validators.required]]
 		})
@@ -74,7 +74,7 @@ export class CreateMissionComponent implements OnInit {
 	bodyGenerator() {
 		return {
 			"missionName": this.getNames("name").value,
-			"briefing": this.getNames("breifing").value,
+			"briefing": this.getNames("briefing").value,
 			"maxsolts": this.getNames("slots").value,
 			"data": this.getNames("data").value,
 			"campaign": this.id,

@@ -2,7 +2,7 @@ import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { NormalEndpointService } from "../services/normal-endpoint.service";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-brefing',
@@ -20,7 +20,7 @@ export class BrefingComponent implements OnInit {
 	id: any;
 	noLoginUser: any
 
-	constructor(private httpClient: NormalEndpointService, private router: ActivatedRoute) { }
+	constructor(private httpClient: NormalEndpointService, private router: ActivatedRoute, private routerService: Router) { }
 
 	ngOnInit(): void {
 		this.routeSub = this.router.params.subscribe(params => {
@@ -59,7 +59,7 @@ export class BrefingComponent implements OnInit {
 	endmission(): void {
 
 		this.httpClient.httpPut("/api/mission/", { "id": this.missionID }).subscribe((res) => {
-
+			this.routerService.navigate(['campaign'])
 		})
 
 	}
